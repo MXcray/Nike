@@ -1,0 +1,68 @@
+.Banner {
+	width: 100%;
+	padding: 30px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	position: relative;
+	z-index: 1;
+	transition: transform .3s;
+
+	&.darken {
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0, 0.45);
+			z-index: -1;
+		}
+	}
+
+	&:hover {
+		transform: scale(1.02);
+	}
+}
+
+.plug {
+	margin-bottom: 48px;
+}
+
+.title {
+	font-size: 24px;
+	color: #fff;
+	font-weight: 500;
+	max-width: 246px;
+}
+
+.bannerBottom {
+	color: white;
+	margin-top: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+}
+
+.link {
+	font-size: 18px;
+	color: #fff;
+	text-decoration: underline #fff solid 2px;
+	text-underline-offset: 10px;
+	margin-top: auto;
+	transition: .3s;
+
+	&:hover {
+		color: var(--dark-orange-color);
+		text-decoration: underline var(--dark-orange-color) solid 2px;
+	}
+}
+
+.date {
+	font-size: 13px;
+}

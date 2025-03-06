@@ -1,0 +1,25 @@
+.HeaderFeatures {
+	display: flex;
+	height: 100%;
+}
+
+.feature {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 70px;
+
+	border-left: 1px solid #EAEAEA;
+	transition: .3s;
+
+	&:last-child {
+		border-right: 1px solid #EAEAEA;
+	}
+
+	&:hover {
+		background-color: var(--dark-black-color);
+		svg path {
+			stroke: #fff;
+		}
+	}
+}

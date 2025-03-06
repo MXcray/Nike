@@ -1,0 +1,6 @@
+.HeaderCategory {
+	transition: .3s;
+	&:hover {
+		color: var(--dark-orange-color);
+	}
+}

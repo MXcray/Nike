@@ -1,0 +1,6 @@
+@use "reset";
+@use "variables/global.scss";
+
+body {
+	font-family: var(--font-family-main), sans-serif;
+}

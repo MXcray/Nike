@@ -1,0 +1,12 @@
+.HeaderSearch {
+	height: 100%;
+	border: none;
+	font-size: 22px;
+	font-weight: 500;
+	padding-left: 30px;
+
+	&::placeholder {
+		color: #CECECE;
+		padding-left: 12px;
+	}
+}

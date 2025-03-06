@@ -1,0 +1,19 @@
+.HeaderLink {
+	color: #585858;
+	transition: .3s;
+
+	&:hover {
+		color: #242424;
+	}
+	&.active {
+		color: #242424;
+	}
+}
+
+.text {
+	font-size: 14px;
+
+	&.medium {
+		font-size: 15px;
+	}
+}

@@ -1,0 +1,27 @@
+.HeaderTop {
+	background-color: #fff;
+	padding: 17px 0;
+	position: relative;
+	z-index: var(--z-header);
+}
+
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.list {
+	display: flex;
+	gap: 40px;
+}
+
+.sign {
+	font-size: 13px;
+}
+
+@media (max-width: 992px) {
+	.list {
+		gap: 20px;
+	}
+}

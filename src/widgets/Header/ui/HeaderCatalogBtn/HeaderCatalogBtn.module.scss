@@ -1,0 +1,30 @@
+.HeaderCatalogBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 15px;
+	font-weight: 500;
+	gap: 16px;
+	transition: .3s;
+
+	&:hover {
+		color: var(--dark-orange-color);
+
+		.icon {
+			stroke: var(--dark-orange-color);
+		}
+	}
+
+	&.collapsed {
+		color: var(--dark-orange-color);
+
+		.icon {
+			stroke: var(--dark-orange-color);
+		}
+	}
+}
+
+.icon {
+	transition: .3s;
+	stroke: black;
+}

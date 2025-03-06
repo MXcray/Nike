@@ -1,0 +1,24 @@
+.Header {
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 100%;
+		height: 100%;
+		width: 100%;
+		background-color: #fff;
+		z-index: var(--z-header-border);
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 100%;
+		height: 100%;
+		width: 100%;
+		background-color: #fff;
+		z-index: var(--z-header-border);
+	}
+}
