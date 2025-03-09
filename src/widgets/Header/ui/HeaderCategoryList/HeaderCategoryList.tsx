@@ -5,6 +5,7 @@ import { classNames } from '../../../../shared/lib/classNames/classNames';
 import { HeaderCategory } from '../HeaderCategory/HeaderCategory.tsx';
 import { HeaderCatalogBtn } from '../HeaderCatalogBtn/HeaderCatalogBtn.tsx';
 import cls from	'./HeaderCategoryList.module.scss';
+import { useAppMedia } from '../../../../shared/hooks/useAppMedia/useAppMedia.tsx';
 
 interface HeaderCategoryListProps {
 	className?: string;
@@ -15,6 +16,7 @@ interface HeaderCategoryListProps {
 
 export const HeaderCategoryList = (props: HeaderCategoryListProps) => {
 	const { className, categories, collapsed, onCollapsed } = props;
+	const { isMedia768 } = useAppMedia();
 
 	// Используем useCallback для создания стабильной функции рендера категории
 	const renderCategory = useCallback((category: HeaderCategoryType, index: number) => (
@@ -41,7 +43,7 @@ export const HeaderCategoryList = (props: HeaderCategoryListProps) => {
 			}}
 		>
 			<HeaderCatalogBtn onClick={onCollapsed} collapsed={collapsed} />
-			{categoryList}
+			{isMedia768 && categoryList}
 		</motion.div>
 	);
 };

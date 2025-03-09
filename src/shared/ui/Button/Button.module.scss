@@ -1,0 +1,85 @@
+.Button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: .3s;
+}
+
+.iconWrapper {
+	height: 65px;
+	width: 65px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	transition: .3s;
+}
+
+.orange, .black {
+	color: #fff
+}
+
+.orange {
+	background-color: var(--light-orange-color);
+
+	.iconWrapper {
+		background-color: var(--dark-orange-color);
+		svg path{
+			stroke: #fff;
+		}
+	}
+
+	&:hover {
+		background-color: #FF9315;
+		.iconWrapper {
+			background-color: #FB7800;
+		}
+	}
+}
+.black {
+	background-color: var(--light-black-color);
+
+	.iconWrapper {
+		background-color: var(--dark-black-color);
+		svg path{
+			stroke: #fff;
+		}
+	}
+
+	&:hover {
+		background-color: var(--dark-black-color);
+		.iconWrapper {
+			background-color: var(--light-black-color);
+		}
+	}
+}
+
+.outline {
+	font-size: 12px;
+	font-weight: 500;
+	text-transform: uppercase;
+	color: var(--dark-black-color);
+	border: 1px solid var(--light-black-color);
+	transition: .3s;
+
+	&:hover {
+		color: #fff;
+		background-color: var(--light-black-color);
+	}
+
+	.text {
+		padding: 15px 20px;
+	}
+}
+
+.filled {
+	font-size: 16px;
+	font-weight: 500;
+
+	.text {
+		max-height: 65px;
+		min-width: 181px;
+		padding: 23px 25px;
+	}
+}

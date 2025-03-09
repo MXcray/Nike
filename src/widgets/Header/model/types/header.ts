@@ -18,8 +18,3 @@ interface HeaderCategory extends  HeaderBaseCategory{
 }
 
 export type HeaderCategoryType = HeaderAccordionCategory | HeaderCategory;
-
-// export interface HeaderCategoryType {
-// 	path: string;
-// 	text: string;
-// }

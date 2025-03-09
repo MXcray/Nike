@@ -1,0 +1,26 @@
+.Accordion {
+	background-color: lightcoral;
+	width: 100%;
+	overflow: hidden;
+}
+
+.btn {
+	width: 100%;
+	text-align: left;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.arrow {
+	transition: .3s;
+	&.opened {
+		transform: rotate(180deg);
+	}
+	&.default {
+		margin-left: 10px;
+	}
+	&.max {
+		float: right;
+	}
+}

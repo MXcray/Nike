@@ -24,7 +24,7 @@ export const HeaderCatalogBtn = memo((props: HeaderCatalogBtn) => {
 			onClick={onClick}
 		>
 			<Icon className={cls.icon} Svg={MenuSvg} width={36} height={8} />
-			<span>{isMedia768 ? 'Меню' : 'Каталог'}</span>
+			<span>{isMedia768 ? 'Каталог' : 'Меню'}</span>
 		</button>
 	);
 });

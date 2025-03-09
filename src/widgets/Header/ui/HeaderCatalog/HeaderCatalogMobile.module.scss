@@ -1,0 +1,47 @@
+.HeaderCatalogWrapper.mobile {
+	position: absolute;
+	width: 328px;
+	top: 0;
+	left: -15px;
+	background-color: white;
+	//z-index: var(--z-header-catalog);
+	z-index: 9999;
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.icons {
+	display: flex;
+}
+
+.btn {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	height: 58px;
+	width: 58px;
+	max-width: 100%;
+	max-height: 100%;
+	transition: .3s;
+	span {
+		position: absolute;
+		top: 13px;
+		right: 13px;
+		width: 16px;
+		height: 16px;
+		background-color: var(--light-orange-color);
+		border-radius: 100%;
+		font-size: 9px;
+		font-weight: 700;
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

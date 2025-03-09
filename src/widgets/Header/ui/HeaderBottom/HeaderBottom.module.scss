@@ -1,12 +1,12 @@
 .HeaderBottom {
-
+	height: 70px;
 }
 
 .headerDefaultContent {
+	height: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 70px;
 
 	position: relative;
 
@@ -51,4 +51,19 @@
 //	height: 100%;
 //	gap: 57px;
 //	font-size: 15px;
+}
+
+@media (max-width: 992px) {
+	.logoWrapper {
+		padding-right: 10px;
+	}
+	.HeaderBottom {
+		height: 50px;
+	}
+}
+
+@media (max-width: 768px) {
+	.HeaderBottom {
+		height: 70px;
+	}
 }

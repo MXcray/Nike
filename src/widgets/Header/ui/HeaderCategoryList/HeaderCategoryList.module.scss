@@ -6,4 +6,19 @@
 	height: 100%;
 	gap: 57px;
 	font-size: 15px;
+	padding: 0 10px;
+}
+
+@media (max-width: 992px) {
+	.HeaderCategoryList {
+		gap: 30px;
+	}
+}
+
+@media (max-width: 768px) {
+	.HeaderCategoryList {
+		gap: 30px;
+		justify-content: left;
+		padding: 0 30px;
+	}
 }

@@ -7,6 +7,7 @@ import { HeaderFeatures } from '../HeaderFeatures/HeaderFeatures.tsx';
 import { HeaderSearch } from '../HeaderSearch/HeaderSearch.tsx';
 import { AnimatePresence, motion } from 'motion/react';
 import { HeaderCategoryList } from '../HeaderCategoryList/HeaderCategoryList.tsx';
+import { useAppMedia } from '../../../../shared/hooks/useAppMedia/useAppMedia.tsx';
 
 interface HeaderBottomProps {
 	menuCollapsed?: boolean;

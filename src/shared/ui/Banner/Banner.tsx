@@ -3,6 +3,7 @@ import cls from './Banner.module.scss';
 import { AppLink } from '../AppLink/AppLink.tsx';
 import { classNames } from '../../lib/classNames/classNames.ts';
 import { Plug, PredefinedPlugType } from '../Plug/Plug.tsx';
+import { renderPlug } from '../../lib/renderPlug/renderPlug.tsx';
 
 // Базовые пропсы для всех вариантов баннера
 interface BaseBannerProps {
@@ -68,24 +69,7 @@ export const Banner = memo((props: BannerProps) => {
 		darken = true,
 	} = props;
 
-	const renderPlug = useCallback(() => {
-		// Если передан готовый компонент, используем его
-		if (plug) {
-			return plug;
-		}
-		// Если указан тип плага, создаем компонент Plug
-		if (plugType) {
-			if (plugType === 'text') {
-				// TypeScript уже гарантирует, что plugText определен для типа 'text'
-				return <Plug plugType="text" plugText={plugText!} />;
-			}
-			// Для предопределенных типов
-			return <Plug plugType={plugType} plugText={plugText} />;
-		}
-		return null;
-	}, [plug, plugType, plugText]);
-
-	const plugElement = renderPlug();
+	const plugElement = renderPlug({ plug, plugType, plugText });
 
 	return (
 		<div
