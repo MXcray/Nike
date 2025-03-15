@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 import { HeaderCategoryType } from '../../model/types/header';
 import { motion } from 'motion/react';
 import { classNames } from '../../../../shared/lib/classNames/classNames';
@@ -10,12 +10,17 @@ import { useAppMedia } from '../../../../shared/hooks/useAppMedia/useAppMedia.ts
 interface HeaderCategoryListProps {
 	className?: string;
 	categories: HeaderCategoryType[];
-	collapsed: boolean;
-	onCollapsed: () => void;
+	isHeaderMenuOpened: boolean;
+	onClose: () => void;
 }
 
-export const HeaderCategoryList = (props: HeaderCategoryListProps) => {
-	const { className, categories, collapsed, onCollapsed } = props;
+export const HeaderCategoryList = memo((props: HeaderCategoryListProps) => {
+	const {
+		className,
+		categories,
+		isHeaderMenuOpened,
+		onClose
+	} = props;
 	const { isMedia768 } = useAppMedia();
 
 	// Используем useCallback для создания стабильной функции рендера категории
@@ -42,8 +47,8 @@ export const HeaderCategoryList = (props: HeaderCategoryListProps) => {
 				transition: { duration: 0.3 }
 			}}
 		>
-			<HeaderCatalogBtn onClick={onCollapsed} collapsed={collapsed} />
+			<HeaderCatalogBtn onClick={onClose} isMenuOpened={isHeaderMenuOpened} />
 			{isMedia768 && categoryList}
 		</motion.div>
 	);
-};
+});

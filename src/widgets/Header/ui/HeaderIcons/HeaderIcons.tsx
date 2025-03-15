@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from 'react';
 import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
-import cls from './HeaderFeatures.module.scss';
+import cls from './HeaderIcons.module.scss';
 import { Icon } from '../../../../shared/ui/Icon/Icon.tsx';
 import SearchIcon from '../../../../shared/assets/icons/search.svg?react';
 import LikeIcon from '../../../../shared/assets/icons/like.svg?react';
@@ -10,37 +10,39 @@ import { AppLink } from '../../../../shared/ui/AppLink/AppLink.tsx';
 import { getRouteMain } from '../../../../shared/const/router.ts';
 import { useAppMedia } from '../../../../shared/hooks/useAppMedia/useAppMedia.tsx';
 import { useMediaQuery } from 'react-responsive';
+import { HeaderIcon } from '../HeaderIcon/HeaderIcon.tsx';
 
-interface HeaderFeaturesProps {
+interface HeaderIconsProps {
 	searchToggle: () => void;
+	className?: string;
 }
 
-export const HeaderFeatures = memo(({ searchToggle }: HeaderFeaturesProps) => {
+export const HeaderIcons = memo(({ searchToggle, className }: HeaderIconsProps) => {
 	const { isMedia768  } = useAppMedia();
 	const  isMedia600 = useMediaQuery({
-		query: '(min-width: 600px)'
+		query: '(max-width: 600px)'
 	})
 
 	return (
-		<div className={classNames(cls.HeaderFeatures, {}, [])}>
-			{isMedia600 &&
+		<div className={classNames(cls.HeaderIcons, {}, [className])}>
+			{!isMedia600 &&
 				<>
 					{!isMedia768 &&
-						<AppLink to={getRouteMain()} className={cls.feature}>
+						<HeaderIcon className={cls.iconItem} to={getRouteMain()}>
 							<Icon Svg={UserIcon} />
-						</AppLink>
+						</HeaderIcon>
 					}
-					<button className={cls.feature} onClick={searchToggle}>
+					<HeaderIcon className={cls.iconItem} onClick={searchToggle}>
 						<Icon Svg={SearchIcon} />
-					</button>
+					</HeaderIcon>
 				</>
 			}
-			<AppLink to={getRouteMain()} className={cls.feature}>
+			<HeaderIcon className={cls.iconItem} to={getRouteMain()}>
 				<Icon Svg={LikeIcon} />
-			</AppLink>
-			<AppLink to={getRouteMain()} className={cls.feature}>
+			</HeaderIcon>
+			<HeaderIcon className={cls.iconItem} to={getRouteMain()}>
 				<Icon Svg={BagIcon} />
-			</AppLink>
+			</HeaderIcon>
 		</div>
 	);
 });

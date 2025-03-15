@@ -1,31 +1,30 @@
-import React, { lazy, Suspense, useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import cls from './HeaderBottom.module.scss';
 import { AppLogo } from '../../../../shared/ui/AppLogo/AppLogo.tsx';
 import { getHeaderCategories } from '../../model/selectors/getHeaderCategories.ts';
 import { HeaderCatalog } from '../HeaderCatalog/HeaderCatalog.tsx';
-import { HeaderFeatures } from '../HeaderFeatures/HeaderFeatures.tsx';
+import { HeaderIcons } from '../HeaderIcons/HeaderIcons.tsx';
 import { HeaderSearch } from '../HeaderSearch/HeaderSearch.tsx';
 import { AnimatePresence, motion } from 'motion/react';
 import { HeaderCategoryList } from '../HeaderCategoryList/HeaderCategoryList.tsx';
-import { useAppMedia } from '../../../../shared/hooks/useAppMedia/useAppMedia.tsx';
-
-interface HeaderBottomProps {
-	menuCollapsed?: boolean;
-}
+import { getIsHeaderMenuOpened, UIActions } from '../../../../features/UI';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../../../shared/hooks/useAppDispatch/useAppDispatch.ts';
 
 export const HeaderBottom = () => {
 	// получаем категории один раз при монтировании компонента
 	const headerCategoryList = useMemo(() => getHeaderCategories(), []);
-	const [menuCollapsed, setMenuCollapsed] = useState(true);
+	const isHeaderMenuOpened = useSelector(getIsHeaderMenuOpened);
 	const [isSearched, setIsSearched] = useState(false);
+	const dispatch = useAppDispatch();
 
 	const searchToggle = useCallback(() => {
 		setIsSearched(prev => !prev);
 	}, [])
 
-	const onCollapsed = useCallback(() => {
-		setMenuCollapsed((prev) => !prev);
-	}, []);
+	const onClose = useCallback(() => {
+		dispatch(UIActions.toggleHeaderMenu());
+	}, [dispatch]);
 
 	return (
 		<div className={cls.HeaderBottom}>
@@ -35,23 +34,23 @@ export const HeaderBottom = () => {
 				<div className={cls.categoryList}>
 					<AnimatePresence mode={'wait'}>
 						{isSearched
-							? <HeaderSearch key="search" className={cls.search} />
+							? <HeaderSearch key="search" className={cls.search} autofocus />
 							: <HeaderCategoryList
 								key="categories"
 								className={cls.categories}
 								categories={headerCategoryList}
-								collapsed={menuCollapsed}
-								onCollapsed={onCollapsed}
+								isHeaderMenuOpened={isHeaderMenuOpened}
+								onClose={onClose}
 							/>
 						}
 					</AnimatePresence>
 				</div>
-				<HeaderFeatures searchToggle={searchToggle} />
+				<HeaderIcons className={cls.icons} searchToggle={searchToggle} />
 
 			</div>
 			{/*Todo Сделать Loader*/}
 			<AnimatePresence>
-				{!menuCollapsed && <HeaderCatalog />}
+				{isHeaderMenuOpened && <HeaderCatalog onClose={onClose} />}
 			</AnimatePresence>
 		</div>
 	);

@@ -35,10 +35,11 @@ export const Icon = memo((props: IconProps) => {
 	const icon = (
 		<Svg
 			className={classNames(cls.Icon, {}, [className])}
+			// otherProps обязательно выше, что бы onClick не вызывался на обоих компонентах
+			{...otherProps}
 			width={width}
 			height={height}
 			onClick={undefined}
-			{...otherProps}
 		/>
 	);
 

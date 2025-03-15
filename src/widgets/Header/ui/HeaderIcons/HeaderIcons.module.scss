@@ -1,37 +1,39 @@
-.HeaderFeatures {
+.HeaderIcons {
 	display: flex;
 	height: 100%;
 }
 
-.feature {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.iconItem {
 	width: 70px;
-
 	border-left: 1px solid #EAEAEA;
 	transition: .3s;
 
 	&:last-child {
 		border-right: 1px solid #EAEAEA;
 	}
-
-	&:hover {
-		background-color: var(--dark-black-color);
-		svg path {
-			stroke: #fff;
-		}
-	}
 }
 
 @media (max-width: 992px) {
-	.feature {
+	.iconItem {
 		width: 50px;
 	}
 }
 
 @media (max-width: 768px) {
-	.feature {
+	.iconItem {
 		width: 70px;
+	}
+}
+
+@media (max-width: 480px) {
+	.HeaderIcons {
+		border-left: 1px solid #EAEAEA;
+	}
+	.iconItem {
+		width: 44px;
+		border: none;
+		&:last-child {
+			border: none;
+		}
 	}
 }

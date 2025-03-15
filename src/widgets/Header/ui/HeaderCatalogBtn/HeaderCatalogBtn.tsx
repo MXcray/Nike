@@ -6,25 +6,25 @@ import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
 import { useAppMedia } from '../../../../shared/hooks/useAppMedia/useAppMedia.tsx';
 
 interface HeaderCatalogBtn extends ButtonHTMLAttributes<HTMLButtonElement>{
-	collapsed?: boolean;
+	isMenuOpened?: boolean;
 }
 
 export const HeaderCatalogBtn = memo((props: HeaderCatalogBtn) => {
-	const { onClick, collapsed } = props;
-	const { isMedia768 } = useAppMedia();
+	const { onClick, isMenuOpened } = props;
+	const { isMedia768, isMedia480 } = useAppMedia();
 
 	return (
 		<button
 			className={classNames(
 				cls.HeaderCatalogBtn,
-				{ [cls.collapsed]: !collapsed },
+				{ [cls.opened]: isMenuOpened },
 				[],
 			)}
 			type="button"
 			onClick={onClick}
 		>
 			<Icon className={cls.icon} Svg={MenuSvg} width={36} height={8} />
-			<span>{isMedia768 ? 'Каталог' : 'Меню'}</span>
+			<span>{isMedia480 ? (isMedia768 ? 'Каталог' : 'Меню') : ''}</span>
 		</button>
 	);
 });

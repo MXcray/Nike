@@ -1,0 +1,13 @@
+.HeaderIcon {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&:hover {
+		background-color: var(--dark-black-color);
+		svg path {
+			stroke: #fff;
+		}
+	}
+}

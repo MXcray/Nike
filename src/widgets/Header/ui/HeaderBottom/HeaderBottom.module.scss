@@ -67,3 +67,30 @@
 		height: 70px;
 	}
 }
+
+@media (max-width: 480px) {
+	.logoWrapper {
+		width: 100%;
+		padding: 0;
+	}
+
+	.categoryList {
+		order: 1;
+		width: auto;
+		border-right: 1px solid #EAEAEA;
+		height: 100%;
+	}
+
+	.categories {
+		width: 60px !important;
+		padding: 0 !important;
+	}
+
+	.logoWrapper {
+		order: 2;
+	}
+
+	.icons {
+		order: 3;
+	}
+}

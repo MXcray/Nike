@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { memo, ReactElement, ReactNode } from 'react';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { classNames } from '../../lib/classNames/classNames.ts';
 import cls from './Accordion.module.scss';
@@ -10,28 +10,21 @@ type arrowPaddingType = 'default' | 'max';
 
 interface AccordionProps {
 	className?: string;
+	titleClassName?: string;
 	title: string;
 	// content: ReactNode[] | ReactNode;
 	children: ReactNode;
 	arrowPadding?: arrowPaddingType;
 }
 
-export const Accordion = (props: AccordionProps) => {
+export const Accordion = memo((props: AccordionProps) => {
 	const {
 		className,
 		title,
-		// content,
+		titleClassName,
 		children,
 		arrowPadding = 'default',
 	} = props;
-
-	// const renderContent = () => (
-	// 	Array.isArray(content)
-	// 		? content.map((item, index) => (
-	// 			<div key={index}>{item}</div>
-	// 		))
-	// 		: content
-	// )
 
 	return (
 		<Disclosure
@@ -40,11 +33,13 @@ export const Accordion = (props: AccordionProps) => {
 		>
 			{({ open }) => (
 				<>
-					<DisclosureButton className={cls.btn}>
+					<DisclosureButton className={classNames( cls.btn,{},[titleClassName])}>
 						{title}
 						<Icon
 							className={classNames(cls.arrow, { [cls.opened] : open }, [cls[arrowPadding]])}
 							Svg={Arrow}
+							width={10}
+							height={10}
 						/>
 					</DisclosureButton>
 
@@ -56,11 +51,10 @@ export const Accordion = (props: AccordionProps) => {
 									animate={{ height: 'auto', opacity: 1 }}
 									exit={{ height: 0, opacity: 0 }}
 									transition={{
-										duration: 0.3,
 										height: {
 											type: 'spring',
 											stiffness: 500,
-											damping: 30
+											damping: 50,
 										},
 										opacity: { duration: 0.2 }
 									}}
@@ -75,4 +69,4 @@ export const Accordion = (props: AccordionProps) => {
 				)}
 		</Disclosure>
 	)
-};
+});
