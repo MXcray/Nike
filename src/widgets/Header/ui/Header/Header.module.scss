@@ -1,5 +1,6 @@
 .Header {
 	position: relative;
+	padding: 0 15px;
 
 	&:before {
 		content: '';
@@ -20,5 +21,11 @@
 		width: 100%;
 		background-color: #fff;
 		z-index: var(--z-header-border);
+	}
+}
+
+@media (max-width: 768px) and (min-width: 480px) {
+	.Header {
+		padding: 0 25px;
 	}
 }

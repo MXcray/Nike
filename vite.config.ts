@@ -8,6 +8,11 @@ export default defineConfig({
     react(),
     svgr(),
   ],
+  css: {
+    modules: {
+      generateScopedName: '[name]_[local]__[hash:base64:5]'
+    }
+  }
   // build: {
   //   rollupOptions: {
   //     input: {

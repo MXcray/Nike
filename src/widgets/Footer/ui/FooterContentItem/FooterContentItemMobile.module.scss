@@ -1,0 +1,33 @@
+.FooterContentItemMobile {
+	width: 100%;
+}
+
+.title {
+	color: #707070;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+
+	padding: 10px 0;
+	border-bottom: 1px solid #707070;
+	width: 100%;
+}
+
+.arrow {
+	stroke: #707070;
+}
+
+.accordion {
+	a {
+		color: #fff;
+		font-size: 14px;
+	}
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 23px 0;
+	padding: 23px 0 15px 0;
+}

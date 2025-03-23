@@ -3,7 +3,7 @@
 	width: calc(328px + 21px);
 	height: 100vh;
 	top: 0;
-	left: -15px;
+	left: 0;
 	background-color: transparent;
 	//z-index: var(--z-header-catalog);
 	z-index: 9999;
@@ -168,9 +168,9 @@
 }
 
 @media (max-width: 360px) {
-	.HeaderCatalogWrapper {
-		max-width: calc(100% + 30px);
-		width: 320px;
+	.HeaderCatalogWrapper.mobile {
+		max-width: 100%;
+		width: 315px;
 	}
 	.catalogContent {
 		max-width: 100%;
@@ -178,7 +178,7 @@
 	}
 	.close {
 		top: 10px;
-		right: 0px;
+		right: 0;
 		transform: translateX(-50%);
 	}
 }

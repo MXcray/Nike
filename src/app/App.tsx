@@ -6,7 +6,7 @@ import { AppRouter } from './providers/router';
 
 const App = () => {
 	return (
-		<div id={'app'} className="app" style={{ overflow: 'hidden' }}>
+		<div id={'app'} className="app" style={{ overflowX: 'hidden' }}>
 			<Suspense fallback={'Загрузка...'}>
 				<MainLayout
 					header={<Header />}

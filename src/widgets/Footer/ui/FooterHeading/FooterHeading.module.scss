@@ -1,0 +1,36 @@
+.FooterHeading {
+	//display: flex;
+}
+
+.socials {
+	margin-top: 55px;
+}
+
+.warning {
+	margin-top: 10px;
+	font-size: 12px;
+}
+
+@media (max-width: 768px) {
+	.FooterHeading {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-bottom: 30px;
+	}
+
+	.socials {
+		margin: 0;
+	}
+
+	.warning {
+		width: 100%;
+		text-align: right;
+	}
+}
+
+@media (max-width: 480px) {
+	.warning {
+		text-align: center;
+	}
+}

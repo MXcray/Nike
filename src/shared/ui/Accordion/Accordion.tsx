@@ -7,14 +7,17 @@ import { Icon } from '../Icon/Icon.tsx';
 import { AnimatePresence, motion } from 'motion/react';
 
 type arrowPaddingType = 'default' | 'max';
+type textAlignType = 'default' | 'center';
 
 interface AccordionProps {
 	className?: string;
 	titleClassName?: string;
+	arrowClassName?: string;
 	title: string;
 	// content: ReactNode[] | ReactNode;
 	children: ReactNode;
 	arrowPadding?: arrowPaddingType;
+	textAlign?: textAlignType;
 }
 
 export const Accordion = memo((props: AccordionProps) => {
@@ -22,8 +25,10 @@ export const Accordion = memo((props: AccordionProps) => {
 		className,
 		title,
 		titleClassName,
+		arrowClassName,
 		children,
 		arrowPadding = 'default',
+		textAlign = 'default',
 	} = props;
 
 	return (
@@ -33,10 +38,14 @@ export const Accordion = memo((props: AccordionProps) => {
 		>
 			{({ open }) => (
 				<>
-					<DisclosureButton className={classNames( cls.btn,{},[titleClassName])}>
+					<DisclosureButton
+						className={classNames( cls.btn,{},[titleClassName, cls[arrowPadding], cls[textAlign]])}
+					>
 						{title}
 						<Icon
-							className={classNames(cls.arrow, { [cls.opened] : open }, [cls[arrowPadding]])}
+							className={
+								classNames(cls.arrow, { [cls.opened] : open }, [arrowClassName, cls[arrowPadding]])
+							}
 							Svg={Arrow}
 							width={10}
 							height={10}

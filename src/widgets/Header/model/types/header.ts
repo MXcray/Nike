@@ -12,7 +12,7 @@ interface HeaderAccordionCategory extends HeaderBaseCategory{
 	items: HeaderLinkType[];
 
 }
-interface HeaderCategory extends  HeaderBaseCategory{
+interface HeaderCategory extends HeaderBaseCategory{
 	accordion?: false,
 	path: string;
 }

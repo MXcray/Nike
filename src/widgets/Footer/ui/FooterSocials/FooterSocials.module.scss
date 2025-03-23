@@ -1,0 +1,41 @@
+.FooterSocials {
+	//
+}
+
+.socialsList {
+	display: flex;
+	gap: 11px;
+}
+
+.social {
+	background-color: #272727;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 46px;
+	height: 46px;
+	&:hover {
+		.icon path {
+			fill: var(--light-orange-color);
+		}
+	}
+}
+
+.icon {
+	path {
+		transition: .3s;
+	}
+}
+
+.warning {
+	font-size: 13px;
+	margin-top: 14px;
+	max-width: 200px;
+}
+
+@media (max-width: 480px) {
+	.social {
+		width: 39px;
+		height: 39px;
+	}
+}

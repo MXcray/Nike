@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useMemo, useRef } from 'react';
+import React, { memo, useCallback, useEffect, useMemo, useRef } from 'react';
 import cls from './HeaderCatalogMobile.module.scss';
 import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
 import { getHeaderCategories } from '../../model/selectors/getHeaderCategories.ts';
@@ -30,18 +30,18 @@ const HeaderCatalogMobile = memo(({ onClose }: HeaderCatalogMobile) => {
 	let favoritesCount;
 	const cartCount = 7;
 
-	const handleClickOutside = (event: MouseEvent) => {
+	const handleClickOutside = useCallback((event: MouseEvent) => {
 		if (catalogRef.current && !catalogRef.current.contains(event.target as Node)) {
 			dispatch(UIActions.toggleHeaderMenu());
 		}
-	};
+	}, [dispatch]);
 
 	useEffect(() => {
 		document.addEventListener('mousedown', handleClickOutside);
 		return () => {
 			document.removeEventListener('mousedown', handleClickOutside);
 		};
-	}, [dispatch]);
+	}, [handleClickOutside, dispatch]);
 
 	const renderCategories = () => (
 		categories.map((category, i) => {
@@ -52,6 +52,7 @@ const HeaderCatalogMobile = memo(({ onClose }: HeaderCatalogMobile) => {
 						title={category.title}
 						titleClassName={cls.categoryTitle}
 						key={category.title}
+						arrowPadding={'max'}
 					>
 						{category.items.map((categoryItem, i) => {
 							return (
@@ -87,9 +88,9 @@ const HeaderCatalogMobile = memo(({ onClose }: HeaderCatalogMobile) => {
 		<motion.div
 			ref={catalogRef}
 			className={classNames(cls.HeaderCatalogWrapper, {}, [cls.mobile])}
-			initial={{x: -300, opacity: 0}}
-			animate={{x: 0, opacity: 1}}
-			exit={{x: -300, opacity: 0}}
+			initial={{ x: -300, opacity: 0 }}
+			animate={{ x: 0, opacity: 1 }}
+			exit={{ x: -300, opacity: 0 }}
 			transition={{
 				type: 'spring',
 				bounce: 0,

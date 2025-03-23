@@ -1,0 +1,32 @@
+.Footer {
+	background-color: var(--light-black-color);
+	padding: 0 15px;
+
+	color: #fff;
+	font-size: 15px;
+	font-weight: 400;
+
+	position: relative;
+
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--light-black-color);
+	}
+	&:before {
+		right: 100%;
+	}
+	&:after {
+		left: 100%;
+	}
+}
+
+@media (max-width: 768px) and (min-width: 480px) {
+	.Footer {
+		padding: 0 25px;
+	}
+}
