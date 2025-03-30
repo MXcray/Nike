@@ -7,7 +7,7 @@ import {
 	getRouteMain, getRoutePayment,
 } from '../../../../shared/const/router.ts';
 import { RouteProps } from 'react-router-dom';
-import { MainPage } from '../../../../pages/MainPage/MainPage.tsx';
+import { MainPage } from '../../../../pages/MainPage/ui/MainPage.tsx';
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
 	[AppRoutes.MAIN]: {

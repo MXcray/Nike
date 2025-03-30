@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import cls from './FooterHeading.module.scss';
-import { FooterLogo } from '../FooterLogo/FooterLogo.tsx';
 import { FooterSocials } from '../FooterSocials/FooterSocials.tsx';
 import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
 import { Icon } from '../../../../shared/ui/Icon/Icon.tsx';

@@ -1,0 +1,440 @@
+{
+	"products": [
+		{
+			"id": "1",
+			"type": "sneakers",
+			"name": "Кроссовки Nike Air VaporMax 2023 Flyknit",
+			"brand": "Nike",
+			"model": "Air VaporMax 2023 Flyknit",
+			"shortDescription": "Кроссовки Nike Air VaporMax 2023 Flyknit с поддерживающей амортизацией, созданной для плавного бега, представляет собой совершенно новый взгляд на знакомую коллекцию.",
+			"description": [
+				"Кроссовки Nike Air VaporMax 2023 Flyknit с поддерживающей амортизацией, созданной для плавного бега, представляет собой совершенно новый взгляд на знакомую коллекцию. ",
+				"Модель VaporMax названа в честь команды \"Portland Trail Blazers\". Впервые модель появилась на площадках в 1972 году. Сейчас это уже классика lifestyle от Nike.",
+				"— натуральная кожа для верха кроссовок",
+				"— укрепляющие вставки из натуральной замши",
+				"— контрастный swoosh",
+				"— прямая шнуровка",
+				"— прямая шнуровка"
+			],
+			"specifications": {
+				"sex": "Мужское",
+				"country": "Индия",
+				"material": ["кожа", "Синтетика", "текстиль", "резина"],
+				"collection": "AirMax",
+				"warranty": "1 год",
+				"releaseYear": "2023"
+			},
+			"variants": [
+				{
+					"color": "black",
+					"isSelected": false,
+					"images": [],
+					"availableSizes": [
+						{
+							"eu": "36",
+							"inStock": false,
+							"quantity": 10
+						},
+						{
+							"eu": "36.5",
+							"inStock": false,
+							"quantity": 10
+						},
+						{
+							"eu": "37",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "37.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "38",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "38.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "39",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "39.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "40",
+							"inStock": true,
+							"quantity": 10,
+							"isSelected": true
+						},
+						{
+							"eu": "40.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "41",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "41.5",
+							"inStock": false,
+							"quantity": 10
+						},
+						{
+							"eu": "42",
+							"inStock": false,
+							"quantity": 10
+						},
+						{
+							"eu": "42.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "43",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "43.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "44.5",
+							"inStock": true,
+							"quantity": 10
+						}
+					]
+				},
+				{
+					"color": "blue",
+					"isSelected": false,
+					"images": [],
+					"availableSizes": [
+						{
+							"eu": "36",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "36.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "37",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "37.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "38",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "38.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "39",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "39.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "40",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "40.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "41",
+							"inStock": true,
+							"quantity": 10,
+							"isSelected": true
+						},
+						{
+							"eu": "41.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "42",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "42.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "43",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "43.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "44.5",
+							"inStock": true,
+							"quantity": 10
+						}
+					]
+				},
+				{
+					"color": "red",
+					"isSelected": false,
+					"images": [],
+					"availableSizes": [
+						{
+							"eu": "36",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "36.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "37",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "37.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "38",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "38.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "39",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "39.5",
+							"inStock": true,
+							"quantity": 10,
+							"isSelected": true
+						},
+						{
+							"eu": "40",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "40.5",
+							"inStock": false,
+							"quantity": 10
+						},
+						{
+							"eu": "41",
+							"inStock": false,
+							"quantity": 10
+						},
+						{
+							"eu": "41.5",
+							"inStock": false,
+							"quantity": 10
+						},
+						{
+							"eu": "42",
+							"inStock": false,
+							"quantity": 10
+						},
+						{
+							"eu": "42.5",
+							"inStock": false,
+							"quantity": 10
+						},
+						{
+							"eu": "43",
+							"inStock": false,
+							"quantity": 10
+						},
+						{
+							"eu": "43.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "44.5",
+							"inStock": true,
+							"quantity": 10
+						}
+					]
+				},
+				{
+					"color": "white",
+					"isSelected": true,
+					"images": [],
+					"availableSizes": [
+						{
+							"eu": "36",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "36.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "37",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "37.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "38",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "38.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "39",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "39.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "40",
+							"inStock": true,
+							"quantity": 10,
+							"isSelected": true
+						},
+						{
+							"eu": "40.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "41",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "41.5",
+							"inStock": false,
+							"quantity": 10
+						},
+						{
+							"eu": "42",
+							"inStock": false,
+							"quantity": 10
+						},
+						{
+							"eu": "42.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "43",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "43.5",
+							"inStock": true,
+							"quantity": 10
+						},
+						{
+							"eu": "44.5",
+							"inStock": true,
+							"quantity": 10
+						}
+					]
+				}
+			],
+			"price": {
+				"oldPrice": 7999,
+				"currentPrice": 6329,
+				"currency": "RUB"
+			},
+			"images": [
+				{
+					"title": "Nike Air VaporMax 2023 Flyknit",
+					"src": "http://localhost:3000/img/Nike Air VaporMax 2023 Flyknit 1.jpg",
+					"type": "main"
+				},
+				{
+					"title": "Nike Air VaporMax 2023 Flyknit",
+					"src": "/img/Nike Air VaporMax 2023 Flyknit 2.jpg",
+					"type": "side"
+				},
+				{
+					"title": "Nike Air VaporMax 2023 Flyknit",
+					"src": "/img/Nike Air VaporMax 2023 Flyknit 3.jpg",
+					"type": "side"
+				},
+				{
+					"title": "Nike Air VaporMax 2023 Flyknit",
+					"src": "/img/Nike Air VaporMax 2023 Flyknit 4.jpg",
+					"type": "side"
+				},
+				{
+					"title": "Nike Air VaporMax 2023 Flyknit",
+					"src": "/img/Nike Air VaporMax 2023 Flyknit 5.jpg",
+					"type": "side"
+				}
+			],
+			"isStock": true,
+			"rating": 4.8,
+			"reviewCount": 428,
+			"category": ["Обувь", "Кроссовки", "Спортивная обувь"],
+			"tags": ["бег", "спорт", "амортизация", "flyknit"]
+		}
+	]
+}
