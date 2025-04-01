@@ -6,9 +6,11 @@ const ProductsPageApi = rtkApi.injectEndpoints({
 		getProducts: build.query<Product[], void>({
 			query: () => ({
 				url: '/products',
-			})
+			}),
+			providesTags: ['Products'],
 		}),
 	}),
+	overrideExisting: false,
 });
 
 export const { useGetProductsQuery } = ProductsPageApi;

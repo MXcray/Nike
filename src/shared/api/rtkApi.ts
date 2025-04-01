@@ -5,5 +5,6 @@ export const rtkApi = createApi({
 	baseQuery: fetchBaseQuery({
 		baseUrl: __API_URL__,
 	}),
+	tagTypes: ['Products'],
 	endpoints: (builder) => ({})
 });
