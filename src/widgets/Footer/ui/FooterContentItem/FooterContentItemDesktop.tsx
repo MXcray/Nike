@@ -1,8 +1,8 @@
 import { memo, useMemo } from 'react';
-import { classNames } from "../../../../shared/lib/classNames/classNames.ts";
+import { classNames } from "@/shared/lib/classNames/classNames.ts";
 import cls from './FooterContentItemDesktop.module.scss';
-import { HeaderCategoryType, HeaderLinkType } from '../../../Header/model/types/header.ts';
-import { AppLink } from '../../../../shared/ui/AppLink/AppLink.tsx';
+import { HeaderCategoryType, HeaderLinkType } from '@/widgets/Header/model/types/header.ts';
+import { AppLink } from '@/shared/ui/AppLink/AppLink.tsx';
 
 interface FooterContentItemDesktopProps {
 	className?: string;

@@ -1,12 +1,12 @@
 import { memo } from 'react';
-import { classNames } from "../../../../shared/lib/classNames/classNames.ts";
+import { classNames } from "@/shared/lib/classNames/classNames.ts";
 import cls from './FooterSocials.module.scss';
-import { AppLink } from '../../../../shared/ui/AppLink/AppLink.tsx';
-import { Icon } from '../../../../shared/ui/Icon/Icon.tsx';
-import Instagram from '../../../../shared/assets/icons/instagram.svg?react';
-import Vk from '../../../../shared/assets/icons/vk.svg?react';
-import Twitter from '../../../../shared/assets/icons/twitter.svg?react';
-import { useAppMedia } from '../../../../shared/hooks/useAppMedia/useAppMedia.tsx';
+import { AppLink } from '@/shared/ui/AppLink/AppLink.tsx';
+import { Icon } from '@/shared/ui/Icon/Icon.tsx';
+import Instagram from '@/shared/assets/icons/instagram.svg?react';
+import Vk from '@/shared/assets/icons/vk.svg?react';
+import Twitter from '@/shared/assets/icons/twitter.svg?react';
+import { useAppMedia } from '@/shared/hooks/useAppMedia/useAppMedia.tsx';
 import { SocialWarning } from '../SocialWarning/SocialWarning.tsx';
 
 interface FooterSocialsProps {

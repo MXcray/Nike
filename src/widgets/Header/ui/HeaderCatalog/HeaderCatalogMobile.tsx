@@ -1,20 +1,20 @@
 import React, { memo, useCallback, useEffect, useMemo, useRef } from 'react';
 import cls from './HeaderCatalogMobile.module.scss';
-import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
 import { getHeaderCategories } from '../../model/selectors/getHeaderCategories.ts';
-import { AppLink } from '../../../../shared/ui/AppLink/AppLink.tsx';
-import { getRouteMain } from '../../../../shared/const/router.ts';
-import { Accordion } from '../../../../shared/ui/Accordion/Accordion.tsx';
+import { AppLink } from '@/shared/ui/AppLink/AppLink.tsx';
+import { getRouteMain } from '@/shared/const/router.ts';
+import { Accordion } from '@/shared/ui/Accordion/Accordion.tsx';
 import { HeaderSearch } from '../HeaderSearch/HeaderSearch.tsx';
-import Bag from '../../../../shared/assets/icons/bag.svg?react';
-import Like from '../../../../shared/assets/icons/like.svg?react';
-import { Icon } from '../../../../shared/ui/Icon/Icon.tsx';
+import Bag from '@/shared/assets/icons/bag.svg?react';
+import Like from '@/shared/assets/icons/like.svg?react';
+import { Icon } from '@/shared/ui/Icon/Icon.tsx';
 import { HeaderIcon } from '../HeaderIcon/HeaderIcon.tsx';
-import Close from '../../../../shared/assets/icons/close.svg?react';
-import { useAppDispatch } from '../../../../shared/hooks/useAppDispatch/useAppDispatch.ts';
-import { UIActions } from '../../../../features/UI';
+import Close from '@/shared/assets/icons/close.svg?react';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDispatch.ts';
+import { UIActions } from '@/features/UI';
 import { getHeaderLinks } from '../../model/selectors/getHeaderLinks.ts';
-import Search from '../../../../shared/assets/icons/search.svg?react';
+import Search from '@/shared/assets/icons/search.svg?react';
 import { motion } from 'motion/react';
 
 interface HeaderCatalogMobile {

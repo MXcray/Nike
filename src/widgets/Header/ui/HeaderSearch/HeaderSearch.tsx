@@ -1,6 +1,6 @@
 import React from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
 import cls from './HeaderSearch.module.scss';
 
 interface HeaderSearchProps {

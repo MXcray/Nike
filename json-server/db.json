@@ -27,6 +27,7 @@
 			"variants": [
 				{
 					"color": "black",
+					"colorHex": "282828",
 					"isSelected": false,
 					"images": [],
 					"availableSizes": [
@@ -120,6 +121,7 @@
 				},
 				{
 					"color": "blue",
+					"colorHex": "4296C3",
 					"isSelected": false,
 					"images": [],
 					"availableSizes": [
@@ -213,6 +215,7 @@
 				},
 				{
 					"color": "red",
+					"colorHex": "CF3D48",
 					"isSelected": false,
 					"images": [],
 					"availableSizes": [
@@ -306,6 +309,7 @@
 				},
 				{
 					"color": "white",
+					"colorHex": "ECF2F4",
 					"isSelected": true,
 					"images": [],
 					"availableSizes": [
@@ -406,7 +410,7 @@
 			"images": [
 				{
 					"title": "Nike Air VaporMax 2023 Flyknit",
-					"src": "http://localhost:3000/img/Nike Air VaporMax 2023 Flyknit 1.jpg",
+					"src": "/img/Nike Air VaporMax 2023 Flyknit 1.jpg",
 					"type": "main"
 				},
 				{
@@ -433,6 +437,7 @@
 			"isStock": true,
 			"rating": 4.8,
 			"reviewCount": 428,
+			"badge": "isNew",
 			"category": ["Обувь", "Кроссовки", "Спортивная обувь"],
 			"tags": ["бег", "спорт", "амортизация", "flyknit"]
 		}

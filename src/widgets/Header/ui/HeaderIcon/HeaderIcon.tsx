@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
-import { getRouteMain } from '../../../../shared/const/router.ts';
-import cls from '../HeaderIcon/HeaderIcon.module.scss';
-import { Icon } from '../../../../shared/ui/Icon/Icon.tsx';
-import { AppLink } from '../../../../shared/ui/AppLink/AppLink.tsx';
-import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
+import { getRouteMain } from '@/shared/const/router.ts';
+import cls from './HeaderIcon.module.scss';
+import { Icon } from '@/shared/ui/Icon/Icon.tsx';
+import { AppLink } from '@/shared/ui/AppLink/AppLink.tsx';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
 
 interface HeaderIconBase {
 	className?: string;

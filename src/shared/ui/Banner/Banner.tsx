@@ -1,9 +1,9 @@
 import React, { memo, ReactElement, useCallback } from 'react';
 import cls from './Banner.module.scss';
 import { AppLink } from '../AppLink/AppLink.tsx';
-import { classNames } from '../../lib/classNames/classNames.ts';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
 import { Plug, PredefinedPlugType } from '../Plug/Plug.tsx';
-import { renderPlug } from '../../lib/renderPlug/renderPlug.tsx';
+import { renderPlug } from '@/shared/lib/renderPlug/renderPlug.tsx';
 
 // Базовые пропсы для всех вариантов баннера
 interface BaseBannerProps {

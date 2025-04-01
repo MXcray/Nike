@@ -1,7 +1,7 @@
 import React, { memo, SyntheticEvent } from 'react';
-import { AppLink, AppLinkVariant } from '../../../../shared/ui/AppLink/AppLink.tsx';
+import { AppLink, AppLinkVariant } from '@/shared/ui/AppLink/AppLink.tsx';
 import cls from './HeaderLink.module.scss';
-import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
 import { HeaderLinkType } from '../../model/types/header.ts';
 
 interface HeaderLinkProps {

@@ -1,11 +1,11 @@
 import React, { memo, useCallback, useMemo } from 'react';
 import { HeaderCategoryType } from '../../model/types/header';
 import { motion } from 'motion/react';
-import { classNames } from '../../../../shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { HeaderCategory } from '../HeaderCategory/HeaderCategory.tsx';
 import { HeaderCatalogBtn } from '../HeaderCatalogBtn/HeaderCatalogBtn.tsx';
 import cls from	'./HeaderCategoryList.module.scss';
-import { useAppMedia } from '../../../../shared/hooks/useAppMedia/useAppMedia.tsx';
+import { useAppMedia } from '@/shared/hooks/useAppMedia/useAppMedia.tsx';
 
 interface HeaderCategoryListProps {
 	className?: string;

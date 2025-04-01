@@ -1,0 +1,18 @@
+.ProductColorPicker {
+	display: flex;
+	align-items: center;
+	gap: 0 10px;
+}
+
+.label {
+	font-size: 15px;
+	color: #2E2E2E;
+}
+
+.color {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: transform 0.2s;
+}

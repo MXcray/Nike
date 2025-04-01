@@ -1,6 +1,6 @@
 import React from 'react';
 import cls from './Plug.module.scss';
-import { classNames } from '../../lib/classNames/classNames.ts';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
 
 // Предопределенные типы плагинов
 export type PredefinedPlugType = 'hit' | 'new' | 'discount';
@@ -13,13 +13,16 @@ type BasePlugProps = {
 };
 
 type StandardPlugProps = BasePlugProps & {
-	plugType: 'hit' | 'new'; plugText?: string; // Опционально для стандартных типов };
+	plugType: 'hit' | 'new';
+	plugText?: string; // Опционально для стандартных типов };
 }
 type DiscountPlugProps = BasePlugProps & {
-	plugType: 'discount'; plugText?: string; // Опционально для типа 'discount', по умолчанию '-20%' };
+	plugType: 'discount';
+	plugText?: string; // Опционально для типа 'discount', по умолчанию '-20%' };
 }
 type CustomPlugProps = BasePlugProps & {
-	plugType: 'text'; plugText: string; // Обязательно для типа 'text' };
+	plugType: 'text';
+	plugText: string; // Обязательно для типа 'text' };
 }
 
 // Объединенный тип для всех возможных пропсов

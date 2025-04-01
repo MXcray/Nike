@@ -1,11 +1,26 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { UIReducer } from '../../../../features/UI/model/slices/UISlice';
+import { AnyAction, configureStore, EnhancedStore, ReducersMapObject, ThunkDispatch } from '@reduxjs/toolkit';
+import { UIReducer } from '@/features/UI/model/slices/UISlice';
+import { productsPageReducer } from '@/pages/ProductsPage';
+import { StateSchema, ThunkExtraArg } from './StateSchema.ts';
+import { api } from '@/shared/api/api';
+import { rtkApi } from '@/shared/api/rtkApi.ts';
+
+const rootReducer: ReducersMapObject<StateSchema> = {
+	ui: UIReducer,
+	productsPage: productsPageReducer,
+	[rtkApi.reducerPath]: rtkApi.reducer,
+}
 
 export const store = configureStore({
-	reducer: {
-		ui: UIReducer,
-	}
+	reducer: rootReducer,
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			thunk: {
+				extraArgument: { api } as ThunkExtraArg
+			}
+		}).concat(rtkApi.middleware),
 })
 
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+// export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = ThunkDispatch<StateSchema, ThunkExtraArg, AnyAction>;

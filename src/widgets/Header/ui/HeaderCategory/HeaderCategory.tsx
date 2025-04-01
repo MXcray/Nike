@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
-import { AppLink, AppLinkVariant } from '../../../../shared/ui/AppLink/AppLink.tsx';
+import { AppLink, AppLinkVariant } from '@/shared/ui/AppLink/AppLink.tsx';
 import cls from './HeaderCategory.module.scss';
-import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
 import { HeaderCategoryType } from '../../model/types/header.ts';
 
 interface HeaderCategoryProps {

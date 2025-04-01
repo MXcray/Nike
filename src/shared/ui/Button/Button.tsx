@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
-import { classNames } from '../../lib/classNames/classNames.ts';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
 import cls from './Button.module.scss';
 import { AppLink } from '../AppLink/AppLink.tsx';
 import { Icon } from '../Icon/Icon.tsx';

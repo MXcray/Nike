@@ -1,10 +1,10 @@
 import cls from './FooterSubscribe.module.scss';
 import { memo } from 'react';
-import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
-import { Input } from '../../../../shared/ui/Input/Input.tsx';
-import { Button } from '../../../../shared/ui/Button/Button.tsx';
-import { AppLink } from '../../../../shared/ui/AppLink/AppLink.tsx';
-import { getRouteMain } from '../../../../shared/const/router.ts';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
+import { Input } from '@/shared/ui/Input/Input.tsx';
+import { Button } from '@/shared/ui/Button/Button.tsx';
+import { AppLink } from '@/shared/ui/AppLink/AppLink.tsx';
+import { getRouteMain } from '@/shared/const/router.ts';
 
 interface FooterSubscribeProps {
 	className?: string;

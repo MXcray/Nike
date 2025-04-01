@@ -1,9 +1,9 @@
 import React, { ButtonHTMLAttributes, memo } from 'react';
-import MenuSvg from '../../../../shared/assets/icons/menu.svg?react';
-import { Icon } from '../../../../shared/ui/Icon/Icon.tsx';
+import MenuSvg from '@/shared/assets/icons/menu.svg?react';
+import { Icon } from '@/shared/ui/Icon/Icon.tsx';
 import cls from './HeaderCatalogBtn.module.scss';
-import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
-import { useAppMedia } from '../../../../shared/hooks/useAppMedia/useAppMedia.tsx';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
+import { useAppMedia } from '@/shared/hooks/useAppMedia/useAppMedia.tsx';
 
 interface HeaderCatalogBtn extends ButtonHTMLAttributes<HTMLButtonElement>{
 	isMenuOpened?: boolean;

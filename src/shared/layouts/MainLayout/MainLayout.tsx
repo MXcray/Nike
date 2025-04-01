@@ -1,8 +1,8 @@
 import { memo, ReactElement } from 'react';
 import cls from './MainLayout.module.scss';
-import { classNames } from '../../lib/classNames/classNames.ts';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
 import { useSelector } from 'react-redux';
-import { getIsHeaderMenuOpened } from '../../../features/UI/index.ts';
+import { getIsHeaderMenuOpened } from '@/features/UI/index.ts';
 
 interface MainLayoutProps {
 	className?: string;

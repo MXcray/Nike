@@ -1,11 +1,11 @@
 import cls from './FooterContent.module.scss';
-import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
 import { memo, useEffect } from 'react';
-import { getHeaderLinks } from '../../../Header/model/selectors/getHeaderLinks.ts';
+import { getHeaderLinks } from '@/widgets/Header/model/selectors/getHeaderLinks.ts';
 import { FooterContentItemDesktop } from '../FooterContentItem/FooterContentItemDesktop.tsx';
-import { getHeaderCategories } from '../../../Header/model/selectors/getHeaderCategories.ts';
-import { getRouteMain } from '../../../../shared/const/router.ts';
-import { HeaderLinkType } from '../../../Header/model/types/header.ts';
+import { getHeaderCategories } from '@/widgets/Header/model/selectors/getHeaderCategories.ts';
+import { getRouteMain } from '@/shared/const/router.ts';
+import { HeaderLinkType } from '@/widgets/Header/model/types/header.ts';
 
 interface FooterContentDesktopProps {
 	className?: string;

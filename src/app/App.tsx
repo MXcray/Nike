@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
-import { MainLayout } from '../shared/layouts/MainLayout';
-import { Header } from '../widgets/Header';
-import { Footer } from '../widgets/Footer';
-import { AppRouter } from './providers/router';
+import { MainLayout } from '@/shared/layouts/MainLayout';
+import { Header } from '@/widgets/Header';
+import { Footer } from '@/widgets/Footer';
+import { AppRouter } from '@/app/providers/router';
 
 const App = () => {
 	return (

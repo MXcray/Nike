@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import cls from './FooterBottom.module.scss';
-import { AppLink } from '../../../../shared/ui/AppLink/AppLink.tsx';
-import { getRouteMain } from '../../../../shared/const/router.ts';
-import DevIcon from '../../../../shared/assets/icons/dev-logo.png';
+import { AppLink } from '@/shared/ui/AppLink/AppLink.tsx';
+import { getRouteMain } from '@/shared/const/router.ts';
+import DevIcon from '@/shared/assets/icons/dev-logo.png';
 
 export const FooterBottom = memo(() => {
 	return (

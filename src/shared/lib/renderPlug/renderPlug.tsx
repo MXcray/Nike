@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { Plug, PredefinedPlugType } from '../../ui/Plug/Plug';
+import { Plug, PredefinedPlugType } from '@/shared/ui/Plug/Plug';
 
 interface RenderPlugOptions {
 	plug?: ReactElement;

@@ -1,13 +1,13 @@
 import React, { memo, useMemo } from 'react';
 import cls from './HeaderCatalogDesktop.module.scss';
-import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
 import { getHeaderCategories } from '../../model/selectors/getHeaderCategories.ts';
-import { AppLink } from '../../../../shared/ui/AppLink/AppLink.tsx';
-import { Banner } from '../../../../shared/ui/Banner/Banner.tsx';
-import { getRouteMain } from '../../../../shared/const/router.ts';
-import bannerImg from '../../../../shared/assets/images/header-banner.jpg';
+import { AppLink } from '@/shared/ui/AppLink/AppLink.tsx';
+import { Banner } from '@/shared/ui/Banner/Banner.tsx';
+import { getRouteMain } from '@/shared/const/router.ts';
+import bannerImg from '@/shared/assets/images/header-banner.jpg';
 import { motion } from 'motion/react';
-import { useAppMedia } from '../../../../shared/hooks/useAppMedia/useAppMedia.tsx';
+import { useAppMedia } from '@/shared/hooks/useAppMedia/useAppMedia.tsx';
 
 const HeaderCatalogDesktop = memo(() => {
 	const headerCategoryList = getHeaderCategories();

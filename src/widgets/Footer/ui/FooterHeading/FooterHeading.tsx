@@ -1,12 +1,12 @@
 import React, { memo } from 'react';
 import cls from './FooterHeading.module.scss';
 import { FooterSocials } from '../FooterSocials/FooterSocials.tsx';
-import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
-import { Icon } from '../../../../shared/ui/Icon/Icon.tsx';
-import Logo from '../../../../shared/assets/icons/footer-logo.svg?react';
-import { AppLink } from '../../../../shared/ui/AppLink/AppLink.tsx';
-import { getRouteMain } from '../../../../shared/const/router.ts';
-import { useAppMedia } from '../../../../shared/hooks/useAppMedia/useAppMedia.tsx';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
+import { Icon } from '@/shared/ui/Icon/Icon.tsx';
+import Logo from '@/shared/assets/icons/footer-logo.svg?react';
+import { AppLink } from '@/shared/ui/AppLink/AppLink.tsx';
+import { getRouteMain } from '@/shared/const/router.ts';
+import { useAppMedia } from '@/shared/hooks/useAppMedia/useAppMedia.tsx';
 import { SocialWarning } from '../SocialWarning/SocialWarning.tsx';
 
 interface FooterHeadingProps {

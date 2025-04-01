@@ -1,15 +1,15 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import cls from './HeaderBottom.module.scss';
-import { AppLogo } from '../../../../shared/ui/AppLogo/AppLogo.tsx';
+import { AppLogo } from '@/shared/ui/AppLogo/AppLogo.tsx';
 import { getHeaderCategories } from '../../model/selectors/getHeaderCategories.ts';
 import { HeaderCatalog } from '../HeaderCatalog/HeaderCatalog.tsx';
 import { HeaderIcons } from '../HeaderIcons/HeaderIcons.tsx';
 import { HeaderSearch } from '../HeaderSearch/HeaderSearch.tsx';
 import { AnimatePresence, motion } from 'motion/react';
 import { HeaderCategoryList } from '../HeaderCategoryList/HeaderCategoryList.tsx';
-import { getIsHeaderMenuOpened, UIActions } from '../../../../features/UI';
+import { getIsHeaderMenuOpened, UIActions } from '@/features/UI';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../../../shared/hooks/useAppDispatch/useAppDispatch.ts';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDispatch.ts';
 
 export const HeaderBottom = () => {
 	// получаем категории один раз при монтировании компонента

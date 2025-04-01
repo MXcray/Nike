@@ -1,9 +1,9 @@
 import cls from './FooterContentMobile.module.scss';
 import { memo } from 'react';
-import { getHeaderLinks } from '../../../Header/model/selectors/getHeaderLinks.ts';
-import { getHeaderCategories } from '../../../Header/model/selectors/getHeaderCategories.ts';
-import { getRouteMain } from '../../../../shared/const/router.ts';
-import { HeaderLinkType } from '../../../Header/model/types/header.ts';
+import { getHeaderLinks } from '@/widgets/Header/model/selectors/getHeaderLinks.ts';
+import { getHeaderCategories } from '@/widgets/Header/model/selectors/getHeaderCategories.ts';
+import { getRouteMain } from '@/shared/const/router.ts';
+import { HeaderLinkType } from '@/widgets/Header/model/types/header.ts';
 import { FooterContentItemMobile } from '../FooterContentItem/FooterContentItemMobile.tsx';
 
 export const FooterContentMobile = memo(() => {

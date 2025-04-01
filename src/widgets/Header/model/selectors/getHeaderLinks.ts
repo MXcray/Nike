@@ -4,7 +4,7 @@ import {
 	getRouteBlog, getRouteContacts,
 	getRouteDelivery, getRouteIndividualOrder,
 	getRoutePayment,
-} from '../../../../shared/const/router.ts';
+} from '@/shared/const/router.ts';
 
 export const getHeaderLinks = () => {
 	const headerLinksList: HeaderLinkType[] = [

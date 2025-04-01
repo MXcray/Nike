@@ -1,0 +1,25 @@
+.sex {
+	font-size: 12px;
+	font-weight: 500;
+	color: #747474;
+}
+
+.name {
+	font-size: 19px;
+}
+
+.price {
+	display: flex;
+	gap: 0 10px;
+	align-items: center;
+}
+
+.currentPrice {
+	font-size: 19px;
+}
+
+.oldPrice {
+	font-size: 15px;
+	color: #999999;
+	text-decoration: line-through;
+}

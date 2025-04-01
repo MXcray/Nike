@@ -1,8 +1,8 @@
 import React, { memo, useCallback } from 'react';
 import { Icon } from '../Icon/Icon.tsx';
-import Logo from '../../assets/icons/logo.svg?react';
+import Logo from '@/shared/assets/icons/logo.svg?react';
 import { useNavigate } from 'react-router-dom';
-import { getRouteMain } from '../../const/router.ts';
+import { getRouteMain } from '@/shared/const/router.ts';
 
 interface AppLogoProps {
 	wrapperClassName?: string;

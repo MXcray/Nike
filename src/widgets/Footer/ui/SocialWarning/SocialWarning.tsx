@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames } from "../../../../shared/lib/classNames/classNames.ts";
+import { classNames } from "@/shared/lib/classNames/classNames.ts";
 import cls from './SocialWarning.module.scss';
 
 interface SocialWarningProps {

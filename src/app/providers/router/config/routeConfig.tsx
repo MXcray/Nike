@@ -5,9 +5,10 @@ import {
 	getRouteBlog,
 	getRouteCatalog, getRouteContacts, getRouteDelivery, getRouteIndividualOrder,
 	getRouteMain, getRoutePayment,
-} from '../../../../shared/const/router.ts';
+} from '@/shared/const/router.ts';
 import { RouteProps } from 'react-router-dom';
-import { MainPage } from '../../../../pages/MainPage/ui/MainPage.tsx';
+import { MainPage } from '@/pages/MainPage';
+import { ProductsPage } from '@/pages/ProductsPage';
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
 	[AppRoutes.MAIN]: {
@@ -16,7 +17,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
 	},
 	[AppRoutes.CATALOG]: {
 		path: getRouteCatalog(),
-		element: <div>getRouteCatalog</div>
+		element: <ProductsPage/>,
 	},
 	[AppRoutes.ABOUT]: {
 		path: getRouteAbout(),

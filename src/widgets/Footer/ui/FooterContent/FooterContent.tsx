@@ -1,7 +1,7 @@
 import cls from './FooterContent.module.scss';
-import { classNames } from '../../../../shared/lib/classNames/classNames.ts';
+import { classNames } from '@/shared/lib/classNames/classNames.ts';
 import { memo, Suspense } from 'react';
-import { useAppMedia } from '../../../../shared/hooks/useAppMedia/useAppMedia.tsx';
+import { useAppMedia } from '@/shared/hooks/useAppMedia/useAppMedia.tsx';
 import { FooterContentDesktop } from './FooterContentDesktop.tsx';
 import { FooterContentMobile } from './FooterContentMobile.tsx';
 

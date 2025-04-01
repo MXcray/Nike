@@ -18,7 +18,19 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    //My setting
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+
   },
-  "include": ["vite.config.ts"]
+
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+
+  "include": ["vite.config.ts", "scripts/**/*"]
 }

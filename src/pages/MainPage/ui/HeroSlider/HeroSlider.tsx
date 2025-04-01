@@ -1,16 +1,16 @@
 import { memo, useEffect, useRef, useState } from 'react';
-import { classNames } from "../../../../shared/lib/classNames/classNames.ts";
+import { classNames } from "@/shared/lib/classNames/classNames.ts";
 import cls from './HeroSlider.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperClass } from 'swiper';
 import { Controller, EffectCreative, EffectFade, Navigation, Pagination } from 'swiper/modules';
-import { Icon } from '../../../../shared/ui/Icon/Icon.tsx';
-import { AppLink } from '../../../../shared/ui/AppLink/AppLink.tsx';
-import { getRouteMain } from '../../../../shared/const/router.ts';
-import { Button } from '../../../../shared/ui/Button/Button.tsx';
-import arrowIcon from '../../../../shared/assets/icons/arrow-right.svg?react';
-import LineIcon from '../../../../shared/assets/icons/title-line.svg?react';
-import sneaker1 from '../../../../shared/assets/images/hero-slider-1.png';
+import { Icon } from '@/shared/ui/Icon/Icon.tsx';
+import { AppLink } from '@/shared/ui/AppLink/AppLink.tsx';
+import { getRouteMain } from '@/shared/const/router.ts';
+import { Button } from '@/shared/ui/Button/Button.tsx';
+import arrowIcon from '@/shared/assets/icons/arrow-right.svg?react';
+import LineIcon from '@/shared/assets/icons/title-line.svg?react';
+import sneaker1 from '@/shared/assets/images/hero-slider-1.png';
 
 // Типизация для слайдов
 interface SlideContent {

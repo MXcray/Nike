@@ -1,5 +1,5 @@
 import { HeaderCategoryType } from '../types/header.ts';
-import { getRouteMain } from '../../../../shared/const/router.ts';
+import { getRouteMain } from '@/shared/const/router.ts';
 
 const headerCategoriesList: HeaderCategoryType[] = [
 	{
