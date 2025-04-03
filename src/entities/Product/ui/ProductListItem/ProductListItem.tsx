@@ -6,7 +6,6 @@ import 'swiper/scss';
 import 'swiper/scss/pagination';
 import { ProductItemGallery } from '../ProductItemGallery/ProductItemGallery';
 import { ProductItemInfo } from '../ProductItemInfo/ProductItemInfo';
-
 interface ProductListItemProps {
 	className?: string;
 	product: Product;
@@ -23,6 +22,7 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
 			<ProductItemGallery
 				images={product.images}
 				badge={product.badge}
+				discount={product.discount}
 				className={cls.gallery}
 			/>
 			<ProductItemInfo
@@ -32,7 +32,6 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
 				sex={product.specifications.sex}
 				variants={product.variants}
 				price={product.price}
-				// price={product.price || { currentPrice: 7899, currency: 'Р' }}
 			/>
 		</div>
 	);

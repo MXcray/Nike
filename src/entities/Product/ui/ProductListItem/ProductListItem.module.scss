@@ -1,3 +1,10 @@
+.ProductListItem {
+	max-width: calc(33.3% - 13.3px);
+
+	width: 100%;
+	aspect-ratio: 1 / 1;
+}
+
 .info {
 	margin-top: 25px;
 	display: flex;

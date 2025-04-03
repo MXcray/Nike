@@ -9,7 +9,7 @@ const __dirname = dirname(__filename);
 
 // Конфигурация генератора
 const config = {
-	numberOfProducts: 5, // Количество продуктов для генерации
+	numberOfProducts: 50, // Количество продуктов для генерации
 	outputPath: join(__dirname, '../json-server/db.json'),
 	minImages: 3, // Минимальное количество изображений для продукта
 	maxImages: 5, // Максимальное количество изображений для продукта
@@ -31,7 +31,7 @@ const models = [
 ];
 
 // Массив типов продуктов
-const productTypes = ['sneakers', 'running', 'basketball', 'casual', 'training'];
+const productTypes = ['sneakers'];
 
 // Массив цветов
 const colors = [
@@ -166,10 +166,13 @@ const generateImages = (productName, count) => {
 	const images = [];
 	const slug = generateSlug(productName);
 
+	// Получаем случайное число для имени файла
+	const randomImageNumber = getRandomInt(1, 8);
+
 	// Первое изображение всегда main
 	images.push({
 		title: productName,
-		src: `/img/${slug}_1.jpg`,
+		src: `/img/${randomImageNumber}.jpg`,
 		type: "main"
 	});
 
@@ -179,7 +182,7 @@ const generateImages = (productName, count) => {
 		const isReverse = i % 2 === 1;
 		images.push({
 			title: productName,
-			src: `/img/${slug}${isReverse ? '-reverse' : ''}.jpg`,
+			src: `/img/${randomImageNumber}${isReverse ? '-reverse' : ''}.jpg`,
 			type: "side"
 		});
 	}
@@ -187,21 +190,23 @@ const generateImages = (productName, count) => {
 	return images;
 };
 
-// Функция для генерации цены
-const generatePrice = () => {
+// Функция для генерации цены с учетом badge
+const generatePrice = (badge) => {
 	const currentPrice = getRandomInt(3000, 15000);
-	const hasDiscount = getRandomBoolean(0.7);
 
-	if (hasDiscount) {
+	// Если badge равен isDiscount, добавляем oldPrice и рассчитываем скидку
+	if (badge === 'isDiscount') {
 		const discountPercentage = getRandomInt(10, 30);
 		const oldPrice = Math.round(currentPrice / (1 - discountPercentage / 100));
 		return {
 			oldPrice,
 			currentPrice,
-			currency: "RUB"
+			currency: "RUB",
+			discountPercentage
 		};
 	}
 
+	// Для всех остальных badge возвращаем только currentPrice
 	return {
 		currentPrice,
 		currency: "RUB"
@@ -251,7 +256,11 @@ const generateProduct = (id) => {
 
 	const variants = generateVariants(name);
 
-	return {
+	const badge = getRandomElement(badges);
+	const price = generatePrice(badge);
+
+	// Базовый объект продукта
+	const product = {
 		id: String(id),
 		type,
 		name,
@@ -263,23 +272,34 @@ const generateProduct = (id) => {
 		description: generateDescription(name, brand, model),
 		specifications: generateSpecifications(),
 		variants,
-		price: generatePrice(),
+		price,
 		images,
 		isStock: getRandomBoolean(0.9),
 		rating: parseFloat((getRandomInt(30, 50) / 10).toFixed(1)),
 		reviewCount: getRandomInt(10, 500),
-		badge: getRandomElement(badges),
 		category: getRandomElement(categories),
 		tags: getRandomElement(tagsList)
 	};
+
+	// Добавляем badge только если он не null
+	if (badge !== null) {
+		product.badge = badge;
+
+		// Если badge равен isDiscount, добавляем поле discount
+		if (badge === 'isDiscount') {
+			product.discount = String(price.discountPercentage);
+		}
+	}
+
+	return product;
 };
 
 // Функция для генерации всех продуктов
-const generateProducts = () => {
+const generateProducts = (startId) => {
 	const products = [];
 
-	for (let i = 1; i <= config.numberOfProducts; i++) {
-		products.push(generateProduct(i));
+	for (let i = 0; i < config.numberOfProducts; i++) {
+		products.push(generateProduct(startId + i));
 	}
 
 	return products;
@@ -311,11 +331,23 @@ const main = () => {
 	// Читаем существующий db.json
 	const db = readExistingDb();
 
-	// Генерируем новые продукты
-	const products = generateProducts();
+	// Сохраняем первый элемент, если он существует
+	const firstProduct = db.products && db.products.length > 0 ? db.products[0] : null;
 
-	// Обновляем db.json
-	db.products = products;
+	// Определяем начальный ID для новых продуктов
+	const startId = firstProduct ? 2 : 1;
+
+	// Генерируем новые продукты
+	const newProducts = generateProducts(startId);
+
+	// Обновляем db.json, сохраняя первый элемент, если он существует
+	if (firstProduct) {
+		db.products = [firstProduct, ...newProducts];
+		console.log('Первый продукт сохранен, добавлены новые продукты');
+	} else {
+		db.products = newProducts;
+		console.log('Добавлены новые продукты (первый продукт не найден)');
+	}
 
 	// Записываем обновленный db.json
 	writeDbJson(db);

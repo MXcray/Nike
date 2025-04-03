@@ -54,7 +54,8 @@ export interface Product {
 	isStock: boolean;
 	rating: number;
 	reviewCount: number;
-	badge: ProductBadge;
+	badge?: ProductBadge;
+	discount?: string;
 	category: string[];
 	tags: string[];
 }

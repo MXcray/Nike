@@ -6,6 +6,7 @@ import { mapProductColors } from '../../model/lib/mapProductColors.ts';
 import { ProductPrice, ProductVariant } from '../../model/types/product.ts';
 import { mapCurrencyToSymbol } from '@/shared/lib/mapCurrencyToSymbol/mapCurrencyToSymbol.ts';
 import { formatPrice } from '@/shared/lib/formatPrice/formatPrice.ts';
+import { ProductItemInfoSkeleton } from '@/entities/Product/ui/ProductItemInfo/ProductItemInfoSkeleton.tsx';
 
 interface ProductInfoProps {
 	className?: string;
@@ -14,6 +15,7 @@ interface ProductInfoProps {
 	sex: string;
 	variants: ProductVariant[];
 	price: ProductPrice;
+	isLoading?: boolean;
 }
 
 export const ProductItemInfo = memo((props: ProductInfoProps) => {
@@ -24,12 +26,19 @@ export const ProductItemInfo = memo((props: ProductInfoProps) => {
 		variants,
 		sex,
 		price,
+		isLoading,
 	} = props;
 
 	// Получаем цвета из вариантов товара
 	const displayColors = mapProductColors(variants);
 
 	const currency = mapCurrencyToSymbol[price.currency];
+
+	if (isLoading) {
+		return (
+			<ProductItemInfoSkeleton />
+		);
+	}
 
 	return (
 		<div className={classNames(cls.ProductInfo, {}, [className])}>

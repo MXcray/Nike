@@ -4,7 +4,8 @@ import cls from './ProductsPage.module.scss';
 import { ProductListItem } from '@/entities/Product/ui/ProductListItem/ProductListItem.tsx';
 import {
 	useGetProductsQuery,
-} from '../api/ProductsPageApi.ts';
+} from '../../api/ProductsPageApi.ts';
+import { ProductList } from '@/entities/Product/ui/ProductList/ProductList.tsx';
 
 interface ProductsPageProps {
 	className?: string;
@@ -23,11 +24,11 @@ export const ProductsPage = memo((props: ProductsPageProps) => {
 
 	console.log(products);
 
-	if (isLoading) {
-		return (
-			<div>Загрузка...</div>
-		);
-	}
+	// if (isLoading) {
+	// 	return (
+	// 		<div>Загрузка...</div>
+	// 	);
+	// }
 
 	if (error) {
 		return (
@@ -38,11 +39,13 @@ export const ProductsPage = memo((props: ProductsPageProps) => {
 	return (
 			<div className={classNames(cls.ProductsPage, {}, [className])}>
 				ProductsPage
-				{
-					products.length > 0
-						? <ProductListItem product={products[0]} />
-						: <div>продукты не найдены</div>
-				}
+				<ProductList products={products} isLoading={isLoading}/>
+
+				{/*{*/}
+				{/*	products.length > 0*/}
+				{/*		? <ProductListItem product={products[0]} />*/}
+				{/*		: <div>продукты не найдены</div>*/}
+				{/*}*/}
 			</div>
 	);
 });
