@@ -1,14 +1,13 @@
-export interface User {
+export interface UserData {
 	id: string;
-	login: string;
+	name: string;
+	phoneNumber: string;
 	email: string;
-	password?: string;
-	name?: string;
-	avatar?: string;
+	password: string;
 }
 
 export interface UserSchema {
-	authData?: User;
+	authData?: UserData;
 
-	_inited: boolean;
+	_inited?: boolean;
 }

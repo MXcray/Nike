@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserSchema } from '../types/user';
-import { loginByCredentials, registerByEmail, getUserProfile } from '../../api/userApi';
+import { UserData, UserSchema } from '@/entities/User';
 
 const initialState: UserSchema = {
 	_inited: false,
@@ -10,29 +9,12 @@ export const userSlice = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {
-		setAuthData: (state, action: PayloadAction<any>) => {
-			state.authData = action.payload;
-		},
-		logout: (state) => {
-			state.authData = undefined;
-		},
-		setInited: (state) => {
-			state._inited = true;
-		},
+		setAuthData: (state, {payload}: PayloadAction<UserData>) => {
+			state.authData = payload;
+
+		}
 	},
-	extraReducers: (builder) => {
-		builder
-			.addCase(loginByCredentials.fulfilled, (state, action) => {
-				state.authData = action.payload.user;
-			})
-			.addCase(registerByEmail.fulfilled, (state, action) => {
-				state.authData = action.payload.user;
-			})
-			.addCase(getUserProfile.fulfilled, (state, action) => {
-				state.authData = action.payload;
-				state._inited = true;
-			});
-	}
+	extraReducers: (builder) => {}
 })
 
 export const { actions: userActions } = userSlice;

@@ -15541,7 +15541,25 @@
       "id": "1",
       "login": "admin",
       "email": "admin@gmail.com",
-      "password": "123"
+      "password": "123123123"
+    },
+    {
+      "email": "user@gmail.com",
+      "password": "$2a$10$f3IgFLXgNMGMI88DGrDHpuTpDSjd2YvY1rmbsy4riJu4wmfaECVsa",
+      "id": "o8yeuct"
+    },
+    {
+      "email": "user2@gmail.com",
+      "password": "$2a$10$m8KuaWpXTrFOJQnvi2dh6eaq3p2DwHEpxa05Of0j.I/7n9wabUwQC",
+      "test": "testData52354",
+      "id": "oPYU6FD"
+    },
+    {
+      "email": "user9@gmail.com",
+      "password": "$2a$10$B6Tq1wvQlTG/0NZ841OUr.XhqljMkAIUZ7c8V1DSbJF5nQ3reSnyS",
+      "name": "Олег Олегов",
+      "phoneNumber": "88005553535",
+      "id": "k_Bo-uq"
     }
   ],
   "profiles": [
@@ -15554,8 +15572,19 @@
   "favoriteProducts": [
     {
       "id": "1",
-      "productId": ["1", "2"],
-      "userId": "1"
+      "productId": [
+        "1",
+        "2"
+      ],
+      "userId": "k_Bo-uq"
+    },
+    {
+      "id": "2",
+      "productId": [
+        "33",
+        "22"
+      ],
+      "userId": "oPYU6FD"
     }
   ]
 }

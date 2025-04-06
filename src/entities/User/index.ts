@@ -1,12 +1,9 @@
-import { UserSchema } from './model/types/user';
-import { userReducer, userActions } from './model/slices/userSlice';
-import { loginByCredentials, registerByEmail, getUserProfile } from './api/userApi';
+import { userActions, userReducer } from './model/slices/userSlice';
+import { UserData, UserSchema } from './model/types/user';
 
-export type { UserSchema };
 export {
-	userReducer,
+	type UserData,
+	type UserSchema,
 	userActions,
-	loginByCredentials,
-	registerByEmail,
-	getUserProfile,
-};
+	userReducer,
+}
