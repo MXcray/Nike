@@ -2,6 +2,8 @@
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const jsonServer = require('json-server');
 // eslint-disable-next-line @typescript-eslint/no-require-imports
+const auth = require('json-server-auth');
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const path = require('path');
 
 // Create json-server instance
@@ -19,8 +21,19 @@ server.use((req, res, next) => {
 	setTimeout(next, DELAY_TIME);
 });
 
+// Set up authentication rules (before the router)
+// /auth/register, /auth/login routes will be automatically added
+server.db = router.db;
+server.use(auth.rewriter({
+	users: 600,
+	products: 644
+}));
+
 // Use default middlewares (cors, static, etc.)
 server.use(middlewares);
+
+// Use auth middleware
+server.use(auth);
 
 // Use router
 server.use(router);

@@ -1,0 +1,7 @@
+.AddToFavoriteBtn {
+	fill: transparent;
+	transition: .3s;
+	&:hover {
+		fill: #000;
+	}
+}

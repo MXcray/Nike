@@ -1,5 +1,5 @@
 .ProductItemGallery {
-	//position: relative;
+	position: relative;
 	//width: 440px;
 	max-width: 100%;
 	:global {
@@ -23,8 +23,16 @@
 	padding: 20px;
 
 	display: flex;
+	justify-content: flex-end;
+	//align-items: center;
+}
+
+.alignCenter {
 	justify-content: space-between;
-	align-items: center;
+}
+
+.isFavorite {
+
 }
 
 .swiper {

@@ -4,8 +4,10 @@ import { productsPageReducer } from '@/pages/ProductsPage';
 import { StateSchema, ThunkExtraArg } from './StateSchema.ts';
 import { api } from '@/shared/api/api';
 import { rtkApi } from '@/shared/api/rtkApi.ts';
+import { userReducer } from '@/entities/User';
 
 const rootReducer: ReducersMapObject<StateSchema> = {
+	user: userReducer,
 	ui: UIReducer,
 	productsPage: productsPageReducer,
 	[rtkApi.reducerPath]: rtkApi.reducer,

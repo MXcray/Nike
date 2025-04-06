@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from 'react';
+import { memo, ReactElement, useRef, useState } from 'react';
 import { classNames } from "@/shared/lib/classNames/classNames.ts";
 import cls from './ProductItemGallery.module.scss';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
@@ -24,6 +24,9 @@ interface ProductGalleryProps {
 	badge?: ProductBadge;
 	discount?: string;
 	isLoading?: boolean;
+	productId: string;
+	isFavorite?: boolean;
+	addToFavoriteRender?: (productId: string) => ReactElement;
 }
 
 const mapPlugType: Partial<Record<ProductBadge, PredefinedPlugType>> = {
@@ -38,7 +41,10 @@ export const ProductItemGallery = memo((props: ProductGalleryProps) => {
 		images,
 		badge,
 		discount,
-		isLoading
+		isLoading,
+		productId,
+		isFavorite,
+		addToFavoriteRender,
 	} = props;
 
 	const swiperRef = useRef<SwiperRef>(null);
@@ -89,7 +95,10 @@ export const ProductItemGallery = memo((props: ProductGalleryProps) => {
 			className={classNames(cls.ProductItemGallery, {}, [className])}
 			onMouseMove={handleMouseMove}
 		>
-			<div className={cls.fixedSlideContent}>
+			<div className={classNames(
+				cls.fixedSlideContent,
+				{ [cls.alignCenter]: Boolean(plugType) && Boolean(addToFavoriteRender) }
+			)}>
 				{plugType && (
 					<Plug
 						plugType={plugType}
@@ -97,6 +106,14 @@ export const ProductItemGallery = memo((props: ProductGalleryProps) => {
 							? { plugText: discount + '%' }
 							: {})}
 					/>
+				)}
+				{addToFavoriteRender && (
+					<div className={classNames(
+						cls.addToFavorite,
+						{ [cls.isFavorite]: isFavorite }
+					)}>
+						{addToFavoriteRender(productId)}
+					</div>
 				)}
 			</div>
 			<Swiper
@@ -130,7 +147,11 @@ export const ProductItemGallery = memo((props: ProductGalleryProps) => {
 								onError={() => handleImageError(index)}
 								loading={'lazy'}
 							/>
-							<Skeleton width={'100%'} height={'100%'} className={cls.preloader} />
+							<Skeleton
+								width={'100%'}
+								height={'100%'}
+								className={cls.preloader}
+							/>
 						</SwiperSlide>
 					))
 				) : (

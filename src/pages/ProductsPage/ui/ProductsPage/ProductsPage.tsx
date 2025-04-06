@@ -6,6 +6,7 @@ import {
 	useGetProductsQuery,
 } from '../../api/ProductsPageApi.ts';
 import { ProductList } from '@/entities/Product/ui/ProductList/ProductList.tsx';
+import { AddToFavoriteBtn } from '@/features/AddToFavorite/ui/AddToFavoriteBtn/AddToFavoriteBtn.tsx';
 
 interface ProductsPageProps {
 	className?: string;
@@ -24,22 +25,14 @@ export const ProductsPage = memo((props: ProductsPageProps) => {
 
 	console.log(products);
 
-	// if (isLoading) {
-	// 	return (
-	// 		<div>Загрузка...</div>
-	// 	);
-	// }
-
-	if (error) {
-		return (
-			<div>Призошла ошибка при загрузке товаров</div>
-		);
-	}
-
 	return (
 			<div className={classNames(cls.ProductsPage, {}, [className])}>
-				ProductsPage
-				<ProductList products={products} isLoading={isLoading}/>
+				<ProductList
+					products={products}
+					isLoading={isLoading}
+					error={error}
+					addToFavoriteRender={(productId: string) => <AddToFavoriteBtn productId={productId} />}
+				/>
 
 				{/*{*/}
 				{/*	products.length > 0*/}

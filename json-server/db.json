@@ -15535,5 +15535,27 @@
       "badge": "isDiscount",
       "discount": "10"
     }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "login": "admin",
+      "email": "admin@gmail.com",
+      "password": "123"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "1",
+      "firstName": "Вячеслав",
+      "lastName": "Васильев"
+    }
+  ],
+  "favoriteProducts": [
+    {
+      "id": "1",
+      "productId": ["1", "2"],
+      "userId": "1"
+    }
   ]
 }

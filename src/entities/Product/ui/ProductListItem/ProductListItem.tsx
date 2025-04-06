@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, ReactElement } from 'react';
 import { classNames } from "@/shared/lib/classNames/classNames.ts";
 import cls from './ProductListItem.module.scss';
 import { Product } from '@/entities/Product';
@@ -6,15 +6,18 @@ import 'swiper/scss';
 import 'swiper/scss/pagination';
 import { ProductItemGallery } from '../ProductItemGallery/ProductItemGallery';
 import { ProductItemInfo } from '../ProductItemInfo/ProductItemInfo';
+
 interface ProductListItemProps {
 	className?: string;
 	product: Product;
+	addToFavoriteRender?: (productId: string) => ReactElement;
 }
 
 export const ProductListItem = memo((props: ProductListItemProps) => {
 	const {
 		className,
 		product,
+		addToFavoriteRender,
 	} = props;
 
 	return (
@@ -24,6 +27,8 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
 				badge={product.badge}
 				discount={product.discount}
 				className={cls.gallery}
+				productId={product.id}
+				addToFavoriteRender={addToFavoriteRender ? () => addToFavoriteRender(product.id) : undefined}
 			/>
 			<ProductItemInfo
 				className={cls.info}
