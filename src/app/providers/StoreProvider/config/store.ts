@@ -5,11 +5,17 @@ import { StateSchema, ThunkExtraArg } from './StateSchema.ts';
 import { api } from '@/shared/api/api';
 import { rtkApi } from '@/shared/api/rtkApi.ts';
 import { userReducer } from '@/entities/User';
+import { loginReducer } from '@/features/AuthUser';
+import { registerReducer } from '@/features/RegistrationUser';
+import { favoriteReducer } from '@/entities/Favorites';
 
 const rootReducer: ReducersMapObject<StateSchema> = {
 	user: userReducer,
 	ui: UIReducer,
 	productsPage: productsPageReducer,
+	favoriteProducts: favoriteReducer,
+	login: loginReducer,
+	register: registerReducer,
 	[rtkApi.reducerPath]: rtkApi.reducer,
 }
 

@@ -7,6 +7,11 @@ import {
 } from '../../api/ProductsPageApi.ts';
 import { ProductList } from '@/entities/Product/ui/ProductList/ProductList.tsx';
 import { AddToFavoriteBtn } from '@/features/AddToFavorite/ui/AddToFavoriteBtn/AddToFavoriteBtn.tsx';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDispatch.ts';
+import { productsPageActions } from '../../model/slices/ProductsPageSlice.ts';
+import { fetchProductsList } from '../../model/services/fetchProductsList/fetchProductsList.ts';
+import { useSelector } from 'react-redux';
+import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema.ts';
 
 interface ProductsPageProps {
 	className?: string;
@@ -23,7 +28,13 @@ export const ProductsPage = memo((props: ProductsPageProps) => {
 		error
 	} = useGetProductsQuery();
 
+	// const dispatch = useAppDispatch();
+	// useEffect( ()=> {
+	// 	dispatch(fetchProductsList());
+	// }, [])
+
 	console.log(products);
+
 
 	return (
 			<div className={classNames(cls.ProductsPage, {}, [className])}>

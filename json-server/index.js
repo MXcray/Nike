@@ -15,6 +15,7 @@ const middlewares = jsonServer.defaults({
 
 // Set delay time in milliseconds (e.g., 1000ms = 1 second)
 const DELAY_TIME = 800;
+// const DELAY_TIME = 0;
 
 // Add custom delay middleware
 server.use((req, res, next) => {
@@ -25,7 +26,7 @@ server.use((req, res, next) => {
 // /auth/register, /auth/login routes will be automatically added
 server.db = router.db;
 server.use(auth.rewriter({
-	users: 600,
+	// users: 600,
 	products: 644
 }));
 

@@ -1,13 +1,17 @@
 export interface UserData {
 	id: string;
+	email: string;
 	name: string;
 	phoneNumber: string;
-	email: string;
-	password: string;
+}
+
+export interface UserDataDto {
+	accessToken: string;
+	user: UserData;
 }
 
 export interface UserSchema {
 	authData?: UserData;
 
-	_inited?: boolean;
+	_inited: boolean;
 }

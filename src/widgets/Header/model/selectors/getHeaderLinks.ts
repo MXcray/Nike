@@ -1,7 +1,7 @@
 import { HeaderLinkType } from '../types/header.ts';
 import {
 	getRouteAbout,
-	getRouteBlog, getRouteContacts,
+	getRouteBlog, getRouteCatalog, getRouteContacts,
 	getRouteDelivery, getRouteIndividualOrder,
 	getRoutePayment,
 } from '@/shared/const/router.ts';
@@ -30,7 +30,7 @@ export const getHeaderLinks = () => {
 		},
 		{
 			text: 'Индивидуальный заказ',
-			path: getRouteIndividualOrder(),
+			path: getRouteCatalog(),
 		},
 	]
 
