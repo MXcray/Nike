@@ -22,6 +22,9 @@ const productsPageSlice = createSlice({
 		error: undefined,
 		ids: [],
 		entities: {},
+		page: 1,
+		limit: 9,
+		hasMore: true,
 	}),
 	reducers: {},
 	extraReducers: (builder) => {

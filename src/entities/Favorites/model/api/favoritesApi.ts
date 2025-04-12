@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 /**
  * Получает избранные товары пользователя из БД
+ * @deprecated
  */
 export async function getUserFavoriteProducts(
 	api: AxiosInstance,
@@ -20,6 +21,7 @@ export async function getUserFavoriteProducts(
 
 /**
  * Обновляет существующую запись избранных товаров
+ * @deprecated
  */
 export async function updateExistingFavorites(
 	api: AxiosInstance,
@@ -58,6 +60,7 @@ export async function updateExistingFavorites(
 
 /**
  * Обновляет список ID товаров в избранном
+ * @deprecated
  */
 export async function updateFavoritesProductIds(
 	api: AxiosInstance,
@@ -75,6 +78,7 @@ export async function updateFavoritesProductIds(
 
 /**
  * Создает новую запись избранных товаров
+ * @deprecated
  */
 export async function createNewFavorites(
 	api: AxiosInstance,
@@ -100,6 +104,7 @@ export async function createNewFavorites(
 
 /**
  * Удаляет товар из избранного в БД
+ * @deprecated
  */
 export async function removeProductFromFavorites(
 	api: AxiosInstance,

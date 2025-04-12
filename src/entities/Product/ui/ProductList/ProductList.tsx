@@ -6,7 +6,6 @@ import { ProductListItem } from '@/entities/Product/ui/ProductListItem/ProductLi
 import { ProductListItemSkeleton } from '@/entities/Product/ui/ProductListItem/ProductListItemSkeleton.tsx';
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
-import error from 'eslint-plugin-react/lib/util/error';
 
 interface ProductListProps {
 	className?: string;

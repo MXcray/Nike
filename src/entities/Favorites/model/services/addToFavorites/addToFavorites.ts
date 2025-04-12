@@ -10,8 +10,9 @@ import {
 import {
 	createNewFavorites,
 	getUserFavoriteProducts,
-	updateExistingFavorites
+	updateExistingFavorites,
 } from '../../api/favoritesApi';
+import { favoritesApi } from '../../api/favoritesRtkApi.ts';
 
 /**
  * Асинхронный thunk для добавления товара в избранное
@@ -22,7 +23,7 @@ export const addToFavorites = createAsyncThunk<
 	string,
 	ThunkConfig<string>
 >('favorites/addToFavorites', async (productId, thunkApi) => {
-	const { extra, rejectWithValue } = thunkApi;
+	const { extra, rejectWithValue, dispatch } = thunkApi;
 
 	// Получаем ID пользователя из токена
 	const userId = getUserIdFromToken();
@@ -31,26 +32,42 @@ export const addToFavorites = createAsyncThunk<
 		// Если пользователь авторизован
 		if (userId) {
 			// Получаем текущие избранные товары пользователя из БД
-			const userFavorites = await getUserFavoriteProducts(extra.api, userId);
+			const userFavoritesResult = await dispatch(
+				favoritesApi.endpoints.getUserFavorites.initiate(userId)
+			).unwrap();
 
 			// Получаем избранные товары из localStorage (если есть)
 			const localFavorites = getLocalFavorites();
 
 			// Если у пользователя уже есть избранные товары в БД
-			if (userFavorites) {
+			if (userFavoritesResult) {
 				// Объединяем товары из localStorage с товарами из БД
 				if (localFavorites.length > 0) {
-					const mergedProductIds = [...new Set([...userFavorites.productId, ...localFavorites])];
+					const mergedProductIds = [
+						...new Set([...userFavoritesResult.productId, ...localFavorites, productId])
+					];
 
 					// Очищаем localStorage после объединения
 					clearLocalFavorites();
 
 					// Обновляем запись в БД с объединенными данными
-					return await updateExistingFavorites(extra.api, userFavorites, productId, mergedProductIds);
+					return await dispatch(
+						favoritesApi.endpoints.updateFavorites.initiate({
+							favoriteId: userFavoritesResult.id,
+							productIds: mergedProductIds
+						})
+					).unwrap();
 				}
 
 				// Если в localStorage нет товаров, просто добавляем новый товар
-				return await updateExistingFavorites(extra.api, userFavorites, productId);
+				return await dispatch(
+					favoritesApi.endpoints.addProductToFavorites.initiate({
+						favoriteId: userFavoritesResult.id,
+						currentProductIds: userFavoritesResult.productId,
+						productId,
+						userId
+					})
+				).unwrap();
 			}
 
 			// Если у пользователя нет избранных товаров в БД, создаем новую запись
@@ -62,7 +79,12 @@ export const addToFavorites = createAsyncThunk<
 			// Очищаем localStorage после объединения
 			clearLocalFavorites();
 
-			return await createNewFavorites(extra.api, userId, initialProductIds);
+			return await dispatch(
+				favoritesApi.endpoints.createFavorites.initiate({
+					userId,
+					productIds: initialProductIds
+				})
+			).unwrap();
 		}
 
 		// Если пользователь не авторизован, работаем с localStorage

@@ -4,10 +4,9 @@ import { Icon } from '@/shared/ui/Icon/Icon.tsx';
 import cls from './AddToFavoriteBtn.module.scss';
 import FavoriteIcon from '@/shared/assets/icons/favorite.svg?react';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDispatch.ts';
-import { addToFavorites } from '@/entities/Favorites';
+import { addToFavorites, getFavoriteProductsIds } from '@/entities/Favorites';
 import { useSelector } from 'react-redux';
 import {
-	getFavoriteProductsData,
 	removeFromFavorites,
 } from '@/entities/Favorites';
 
@@ -23,14 +22,13 @@ export const AddToFavoriteBtn = memo((props: AddToFavoriteBtnProps) => {
 	} = props;
 
 	const dispatch = useAppDispatch();
-	const favoriteProducts = useSelector(getFavoriteProductsData);
+	const favoriteProducts = useSelector(getFavoriteProductsIds);
 
 	const isFavorites = useMemo(() => {
-		if (!favoriteProducts?.productId) return false;
-		return favoriteProducts.productId.includes(productId);
+		if (!favoriteProducts) return false;
+		return favoriteProducts.includes(productId);
 	}, [favoriteProducts, productId]);
 
-	// Локальное состояние для оптимистичного UI
 	const [optimisticIsFavorite, setOptimisticIsFavorite] = useState(isFavorites);
 
 	// Синхронизируем локальное состояние с данными из Redux
@@ -39,19 +37,15 @@ export const AddToFavoriteBtn = memo((props: AddToFavoriteBtnProps) => {
 	}, [isFavorites]);
 
 	const onClick = useCallback(() => {
-		// Оптимистично обновляем UI
 		const newState = !optimisticIsFavorite;
 		setOptimisticIsFavorite(newState);
 
-		// Выполняем действие в зависимости от нового состояния
 		const action = newState
 			? addToFavorites(productId)
 			: removeFromFavorites(productId);
 
-		// Отправляем запрос и обрабатываем возможную ошибку
 		dispatch(action).unwrap()
 			.catch(() => {
-				// В случае ошибки возвращаем предыдущее состояние
 				console.error('Ошибка при обновлении избранного');
 				setOptimisticIsFavorite(!newState);
 			});

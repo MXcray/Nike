@@ -7,7 +7,7 @@ import LikeIcon from '@/shared/assets/icons/like.svg?react';
 import BagIcon from '@/shared/assets/icons/bag.svg?react';
 import UserIcon from '@/shared/assets/icons/user.svg?react';
 import { AppLink } from '@/shared/ui/AppLink/AppLink.tsx';
-import { getRouteMain } from '@/shared/const/router.ts';
+import { getRouteFavorites, getRouteMain } from '@/shared/const/router.ts';
 import { useAppMedia } from '@/shared/hooks/useAppMedia/useAppMedia.tsx';
 import { useMediaQuery } from 'react-responsive';
 import { HeaderIcon } from '../HeaderIcon/HeaderIcon.tsx';
@@ -37,7 +37,7 @@ export const HeaderIcons = memo(({ searchToggle, className }: HeaderIconsProps) 
 					</HeaderIcon>
 				</>
 			}
-			<HeaderIcon className={cls.iconItem} to={getRouteMain()}>
+			<HeaderIcon className={cls.iconItem} to={getRouteFavorites()}>
 				<Icon Svg={LikeIcon} />
 			</HeaderIcon>
 			<HeaderIcon className={cls.iconItem} to={getRouteMain()}>

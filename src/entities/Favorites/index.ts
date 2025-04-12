@@ -1,5 +1,6 @@
 import { getFavoriteProductsData } from './model/selectors/getFavoriteProductsData';
 import { getFavoriteProductsError } from './model/selectors/getFavoriteProductsError';
+import { getFavoriteProductsIds } from './model/selectors/getFavoriteProductsIds';
 import { getFavoriteProductsIsLoading } from './model/selectors/getFavoriteProductsIsLoading';
 import { getTotalFavorites } from './model/selectors/getTotalFavorites';
 import { addToFavorites } from './model/services/addToFavorites/addToFavorites';
@@ -16,6 +17,7 @@ export {
 	favoriteActions,
 	getTotalFavorites,
 	getFavoriteProductsData,
+	getFavoriteProductsIds,
 	getFavoriteProductsError,
 	getFavoriteProductsIsLoading,
 	initFavorites,

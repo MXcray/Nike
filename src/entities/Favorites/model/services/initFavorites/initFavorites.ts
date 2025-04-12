@@ -6,6 +6,7 @@ import {
 	clearLocalFavorites,
 	getLocalFavorites
 } from '../../lib/localStorage/favoritesLocalStorage';
+import { favoritesApi } from '../../api/favoritesRtkApi.ts';
 import {
 	createNewFavorites,
 	getUserFavoriteProducts,
@@ -20,7 +21,7 @@ export const initFavorites = createAsyncThunk<
 	void,
 	ThunkConfig<string>
 >('favorites/initFavorites', async (_, thunkApi) => {
-	const { extra, rejectWithValue } = thunkApi;
+	const { extra, rejectWithValue, dispatch } = thunkApi;
 
 	// Получаем ID пользователя из токена
 	const userId = getUserIdFromToken();
@@ -29,37 +30,45 @@ export const initFavorites = createAsyncThunk<
 		// Если пользователь авторизован
 		if (userId) {
 			// Получаем избранные товары из БД
-			const userFavorites = await getUserFavoriteProducts(extra.api, userId);
+			const userFavoritesResult = await dispatch(
+				favoritesApi.endpoints.getUserFavorites.initiate(userId)
+			).unwrap();
 
 			// Получаем избранные товары из localStorage
 			const localFavorites = getLocalFavorites();
 
 			// Если есть товары в БД
-			if (userFavorites) {
+			if (userFavoritesResult) {
 				// Если есть товары в localStorage, объединяем их
 				if (localFavorites.length > 0) {
-					const mergedProductIds = [...new Set([...userFavorites.productId, ...localFavorites])];
+					const mergedProductIds = [...new Set([...userFavoritesResult.productId, ...localFavorites])];
 
 					// Обновляем запись в БД и очищаем localStorage
-					const updatedFavorites = await updateFavoritesProductIds(
-						extra.api,
-						userFavorites,
-						mergedProductIds
-					);
-					clearLocalFavorites();
+					const updatedFavorites = await dispatch(
+						favoritesApi.endpoints.updateFavorites.initiate({
+							favoriteId: userFavoritesResult.id,
+							productIds: mergedProductIds
+						})
+					).unwrap();
 
+					clearLocalFavorites();
 					return updatedFavorites;
 				}
 
-				return userFavorites;
+				return userFavoritesResult;
 			}
 
 			// Если в БД нет записи, но есть товары в localStorage
 			if (localFavorites.length > 0) {
 				// Создаем новую запись в БД с товарами из localStorage
-				const newFavorites = await createNewFavorites(extra.api, userId, localFavorites);
-				clearLocalFavorites();
+				const newFavorites = await dispatch(
+					favoritesApi.endpoints.createFavorites.initiate({
+						userId,
+						productIds: localFavorites
+					})
+				).unwrap();
 
+				clearLocalFavorites();
 				return newFavorites;
 			}
 

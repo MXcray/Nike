@@ -3,6 +3,7 @@ export enum AppRoutes {
 	AUTH = 'auth',
 	PROFILE = 'profile',
 	CATALOG = 'catalog',
+	FAVORITES = 'favorites',
 	ABOUT = 'about',
 	BLOG = 'blog',
 	DELIVERY = 'delivery',
@@ -18,6 +19,7 @@ export const getRouteMain = () => '/';
 export const getRouteAuth = () => '/auth';
 export const getRouteProfile = () => '/profile';
 export const getRouteCatalog = () => '/catalog';
+export const getRouteFavorites = () => '/favorites';
 export const getRouteAbout = () => '/about';
 export const getRouteBlog = () => '/blog';
 export const getRouteDelivery = () => '/delivery';

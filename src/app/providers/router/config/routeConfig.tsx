@@ -3,14 +3,15 @@ import {
 	AppRoutes,
 	getRouteAbout, getRouteAuth,
 	getRouteBlog,
-	getRouteCatalog, getRouteContacts, getRouteDelivery, getRouteIndividualOrder,
+	getRouteCatalog, getRouteContacts, getRouteDelivery, getRouteFavorites, getRouteIndividualOrder,
 	getRouteMain, getRoutePayment, getRouteProfile,
 } from '@/shared/const/router.ts';
 import { RouteProps } from 'react-router-dom';
 import { MainPage } from '@/pages/MainPage';
 import { ProductsPage } from '@/pages/ProductsPage';
-import { AuthPage } from '@/pages/AuthPage/ui/AuthPage/AuthPage.tsx';
-import { ProfilePage } from '@/pages/ProfilePage/ui/ProfilePage.tsx';
+import { FavoritesPage } from '@/pages/FavoritesPage';
+import { AuthPage } from '@/pages/AuthPage';
+import { ProfilePage } from '@/pages/ProfilePage';
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
 	[AppRoutes.MAIN]: {
@@ -28,6 +29,10 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
 	[AppRoutes.CATALOG]: {
 		path: getRouteCatalog(),
 		element: <ProductsPage/>,
+	},
+	[AppRoutes.FAVORITES]: {
+		path: getRouteFavorites(),
+		element: <FavoritesPage/>,
 	},
 	[AppRoutes.ABOUT]: {
 		path: getRouteAbout(),
