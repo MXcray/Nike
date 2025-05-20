@@ -1,46 +1,51 @@
-import {
-	createEntityAdapter,
-	createSlice,
-} from '@reduxjs/toolkit';
-import { Product } from '@/entities/Product';
+import { createSlice } from '@reduxjs/toolkit';
 import { ProductsPageSchema } from '../../model/types/productsPageSchema.ts';
-import { fetchProductsList } from '../../model/services/fetchProductsList/fetchProductsList.ts';
-import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema.ts';
 
-const productsAdapter = createEntityAdapter<Product, string>({
-	selectId: (product) => product.id,
-});
-
-export const getProducts = productsAdapter.getSelectors<StateSchema>(
-	(state) => state.productsPage || productsAdapter.getInitialState(),
-);
+const initialState: ProductsPageSchema = {
+	isLoading: false,
+	error: undefined,
+	page: 1,
+	limit: 9,
+	// hasMore: true,
+	size: '45',
+	color: 'white',
+	minPrice: 3500,
+	maxPrice: 17500,
+	material: 'кожа',
+}
 
 const productsPageSlice = createSlice({
 	name: 'productsPageSlice',
-	initialState: productsAdapter.getInitialState<ProductsPageSchema>({
-		isLoading: false,
-		error: undefined,
-		ids: [],
-		entities: {},
-		page: 1,
-		limit: 9,
-		hasMore: true,
-	}),
-	reducers: {},
-	extraReducers: (builder) => {
-		builder
-			.addCase(fetchProductsList.pending, (state, action) => {
-				state.error = undefined;
-				state.isLoading = true;
-			})
-			.addCase(fetchProductsList.fulfilled, (state, action) => {
-				state.isLoading = false;
-				productsAdapter.setAll(state, action.payload);
-			})
-			.addCase(fetchProductsList.rejected, (state, action) => {
-				state.isLoading = false;
-				state.error = action.payload;
-			});
+	initialState,
+	reducers: {
+		setPage: (state, action) => {
+			state.page = action.payload;
+		},
+		setLimit: (state, action) => {
+			state.limit = action.payload;
+		},
+		setSize: (state, action) => {
+			state.size = action.payload;
+		},
+		setColor: (state, action) => {
+			state.color = action.payload;
+		},
+		setMinPrice: (state, action) => {
+			state.minPrice = action.payload;
+		},
+		setMaxPrice: (state, action) => {
+			state.maxPrice = action.payload;
+		},
+		setMaterial: (state, action) => {
+			state.material = action.payload;
+		},
+		resetFilters: (state) => {
+			state.size = '45';
+			state.color = 'white';
+			state.minPrice = 3500;
+			state.maxPrice = 17500;
+			state.material = 'кожа';
+		}
 	},
 });
 

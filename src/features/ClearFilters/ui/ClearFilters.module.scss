@@ -1,0 +1,18 @@
+.ClearFilters {
+	background-color: #FBFBFB;
+	font-size: 12px;
+	font-weight: 500;
+	text-transform: uppercase;
+	transition: .3s;
+
+	&:hover {
+		background-color: #efefef;
+	}
+}
+
+.wrapperIcon {
+	margin-right: 11px;
+	path {
+		fill: #6C757D;
+	}
+}

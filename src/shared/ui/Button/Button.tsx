@@ -12,8 +12,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	children?: ReactNode;
 	href?: string;
 	icon?: React.FC<React.SVGProps<SVGElement>>;
+	wrapperClassName?: string;
 	iconWidth?: number;
 	iconHeight?: number;
+	iconPosition?: 'left' | 'right';
 	buttonColor?: ButtonColor;
 	buttonType?: ButtonType;
 	// onClick?: () => void;
@@ -25,8 +27,10 @@ export const Button = (props: ButtonProps) => {
 		children,
 		href,
 		icon,
+		wrapperClassName,
 		iconWidth,
 		iconHeight,
+		iconPosition = 'right',
 		buttonColor = 'none',
 		buttonType = 'clear',
 		...otherProps
@@ -34,13 +38,22 @@ export const Button = (props: ButtonProps) => {
 
 	const content = (
 		<>
-			<div className={cls.text}>{children}</div>
-			{icon &&
+			{icon && iconPosition === 'left' &&
 				<Icon
 					Svg={icon}
 					width={iconWidth}
 					height={iconHeight}
-					wrapperClassName={cls.iconWrapper}
+					wrapperClassName={classNames(cls.iconWrapper, {}, [wrapperClassName])}
+					className={cls.icon}
+				/>
+			}
+			<div className={cls.text}>{children}</div>
+			{icon && iconPosition === 'right' &&
+				<Icon
+					Svg={icon}
+					width={iconWidth}
+					height={iconHeight}
+					wrapperClassName={classNames(cls.iconWrapper, {}, [wrapperClassName])}
 					className={cls.icon}
 				/>
 			}

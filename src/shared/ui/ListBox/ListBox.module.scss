@@ -1,0 +1,49 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	gap: 0 11px;
+
+
+	position: relative;
+}
+
+.Listbox {
+	z-index: 3;
+	//width: 100px;
+	//position: relative;
+}
+
+.trigger {
+	font-size: 15px;
+	color: #B5B5B5;
+	align-items: flex-start;
+}
+
+.iconWrapper {
+	margin-left: 11px;
+}
+
+.options {
+	position: absolute;
+	background: #f1f1f1;
+	max-height: 200px;
+	overflow-y: scroll;
+	top: 71px;
+	left: 50%;
+	transform: translateX(-49.5%);
+}
+
+.option {
+	padding: 10px 0;
+	text-align: center;
+	&.focus {
+		background: #d2d2d2;
+	}
+	&.selected {
+		background: #d2d2d2;
+	}
+	&.disabled {
+		opacity: 0.3;
+	}
+}
+

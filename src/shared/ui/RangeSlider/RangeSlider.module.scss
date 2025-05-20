@@ -1,0 +1,129 @@
+.priceRangeSlider {
+	width: 100%;
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	grid-template-areas:
+        "label slider inputs";
+	align-items: center;
+	gap: 15px;
+}
+
+.priceLabel {
+	grid-area: label;
+	font-weight: 500;
+	font-size: 14px;
+	white-space: nowrap;
+}
+
+.sliderWrapper {
+	grid-area: slider;
+	padding: 0 10px;
+	width: 100%;
+	min-width: 150px;
+}
+
+.sliderContainer {
+	position: relative;
+	width: 100%;
+	height: 30px; /* Увеличена высота контейнера */
+	display: flex;
+	align-items: center;
+}
+
+.priceInputs {
+	grid-area: inputs;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	white-space: nowrap;
+}
+
+.inputWrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+
+	&:before {
+		content: '';
+		position: absolute;
+		bottom: -5px;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background-color: #B5B5B5;
+	}
+}
+
+.priceInput {
+	width: 70px;
+	padding: 5px 20px 5px 8px;
+	font-size: 14px;
+	font-weight: 500;
+	text-align: right;
+	position: relative;
+}
+
+.currencySymbol {
+	position: absolute;
+	right: 8px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #666;
+	pointer-events: none;
+}
+
+.separator {
+	margin: 0 5px;
+	color: #B5B5B5;
+}
+
+.slider {
+	:global {
+		.rc-slider-handle:focus-visible {
+			box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+		}
+
+		.rc-slider-handle:hover {
+			border-color: #000;
+		}
+
+		.rc-slider-handle:active {
+			border-color: #000;
+			box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+		}
+	}
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+	.priceRangeSlider {
+		grid-template-columns: auto 1fr;
+		grid-template-areas:
+            "label inputs"
+            "slider slider";
+		gap: 10px;
+	}
+
+	.sliderWrapper {
+		padding: 10px 0;
+	}
+
+	.priceInputs {
+		justify-content: flex-end;
+	}
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+	.priceRangeSlider {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+            "label"
+            "inputs"
+            "slider";
+	}
+
+	.priceInputs {
+		justify-content: flex-start;
+	}
+}

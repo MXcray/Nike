@@ -1,0 +1,39 @@
+.ProductsPageFilters {
+	position: relative;
+	&:before {
+		content: '';
+		position: absolute;
+		height: 1px;
+		width: 100vw;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: #DFDFDF;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		height: 1px;
+		width: 100vw;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: #DFDFDF;
+	}
+}
+
+.filter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-height: 72px;
+	width: 100%;
+	padding: 30px 10px;
+	border-right: 1px solid #DFDFDF;
+}
+
+//.clearFilter {
+//	padding: 30px 10px;
+//	width: 100%;
+//	border-right: 1px solid #DFDFDF;
+//}

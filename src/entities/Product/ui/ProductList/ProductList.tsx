@@ -6,6 +6,7 @@ import { ProductListItem } from '@/entities/Product/ui/ProductListItem/ProductLi
 import { ProductListItemSkeleton } from '@/entities/Product/ui/ProductListItem/ProductListItemSkeleton.tsx';
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
+import { ProductsResponse } from '@/entities/Product/model/api/ProductsApi.ts';
 
 interface ProductListProps {
 	className?: string;
@@ -40,16 +41,18 @@ export const ProductList = memo((props: ProductListProps) => {
 
 	return (
 		<div className={classNames(cls.ProductList, {}, [className])}>
+			{isLoading && getSkeletons()}
+
 			{products?.map((product, index) => {
 				return (
 					<ProductListItem
+						isLoading={isLoading}
 						key={index}
 						product={product}
 						addToFavoriteRender={addToFavoriteRender ? () => addToFavoriteRender(product.id) : undefined}
 					/>
 					);
 				})}
-			{isLoading && getSkeletons()}
 			</div>
 	);
 });

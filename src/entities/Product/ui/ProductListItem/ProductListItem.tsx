@@ -11,6 +11,7 @@ interface ProductListItemProps {
 	className?: string;
 	product: Product;
 	addToFavoriteRender?: (productId: string) => ReactElement;
+	isLoading?: boolean;
 }
 
 export const ProductListItem = memo((props: ProductListItemProps) => {
@@ -18,6 +19,7 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
 		className,
 		product,
 		addToFavoriteRender,
+		isLoading,
 	} = props;
 
 	return (
@@ -29,6 +31,7 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
 				className={cls.gallery}
 				productId={product.id}
 				addToFavoriteRender={addToFavoriteRender ? () => addToFavoriteRender(product.id) : undefined}
+				isLoading={isLoading}
 			/>
 			<ProductItemInfo
 				className={cls.info}
@@ -37,6 +40,7 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
 				sex={product.specifications.sex}
 				variants={product.variants}
 				price={product.price}
+				// isLoading={isLoading}
 			/>
 		</div>
 	);

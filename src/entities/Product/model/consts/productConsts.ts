@@ -3,6 +3,8 @@ export enum ProductSex {
 	FEMALE = 'female'
 }
 
+
+
 export enum ProductImageVariant {
 	MAIN = 'main',
 	SIDE = 'side',

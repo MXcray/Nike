@@ -17,6 +17,7 @@ interface NonClickableIconProps extends IconBaseProps {
 interface ClickableIconProps extends IconBaseProps {
 	clickable: true;
 	onClick: () => void;
+	disabled?: boolean;
 }
 
 type IconProps = NonClickableIconProps | ClickableIconProps;
@@ -49,6 +50,7 @@ export const Icon = memo((props: IconProps) => {
 				className={wrapperClassName}
 				type={'button'}
 				onClick={props.onClick}
+				disabled={props.disabled}
 			>
 				{icon}
 			</button>

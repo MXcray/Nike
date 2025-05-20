@@ -120,6 +120,7 @@ export const HeroSlider = memo(() => {
 					buttonType={'filled'}
 					buttonColor={'black'}
 					icon={arrowIcon}
+					wrapperClassName={cls.iconWrapper}
 				>
 					Подробнее
 				</Button>
