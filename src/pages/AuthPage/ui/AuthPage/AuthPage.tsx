@@ -14,11 +14,11 @@ export const AuthPage = memo((props: AuthPageProps) => {
 	return (
 		<div className={classNames(cls.AuthPage, {}, [className])}>
 			AuthPage
-			<RegistrationForm />
+			<LoginForm />
 			<br />
 			<hr />
 			<br/>
-			<LoginForm />
+			<RegistrationForm />
 			<div></div>
 		</div>
 	);

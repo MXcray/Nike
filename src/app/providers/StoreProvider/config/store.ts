@@ -9,26 +9,32 @@ import { loginReducer } from '@/features/AuthUser';
 import { registerReducer } from '@/features/RegistrationUser';
 import { favoriteReducer } from '@/entities/Favorites';
 
-const rootReducer: ReducersMapObject<StateSchema> = {
-	user: userReducer,
-	ui: UIReducer,
-	productsPage: productsPageReducer,
-	favoriteProducts: favoriteReducer,
-	login: loginReducer,
-	register: registerReducer,
-	[rtkApi.reducerPath]: rtkApi.reducer,
+export function createReduxStore(initialState?: StateSchema) {
+	const rootReducer: ReducersMapObject<StateSchema> = {
+		user: userReducer,
+		ui: UIReducer,
+		productsPage: productsPageReducer,
+		favoriteProducts: favoriteReducer,
+		login: loginReducer,
+		register: registerReducer,
+		[rtkApi.reducerPath]: rtkApi.reducer,
+	}
+
+	const store = configureStore({
+		reducer: rootReducer,
+		preloadedState: initialState,
+		middleware: (getDefaultMiddleware) =>
+			getDefaultMiddleware({
+				thunk: {
+					extraArgument: { api } as ThunkExtraArg
+				}
+			}).concat(rtkApi.middleware),
+	})
+
+	return store;
 }
 
-export const store = configureStore({
-	reducer: rootReducer,
-	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware({
-			thunk: {
-				extraArgument: { api } as ThunkExtraArg
-			}
-		}).concat(rtkApi.middleware),
-})
 
-export type RootState = ReturnType<typeof store.getState>;
+// export type RootState = ReturnType<typeof store.getState>;
 // export type AppDispatch = typeof store.dispatch;
 export type AppDispatch = ThunkDispatch<StateSchema, ThunkExtraArg, AnyAction>;

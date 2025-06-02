@@ -1,3 +1,4 @@
+
 import { memo, ReactElement, useRef, useState } from 'react';
 import { classNames } from "@/shared/lib/classNames/classNames.ts";
 import cls from './ProductItemGallery.module.scss';
@@ -16,11 +17,12 @@ import { ProductItemGallerySkeleton } from '@/entities/Product/ui/ProductItemGal
 interface ProductImage {
 	src: string;
 	title?: string;
+	type?: string;
 }
 
 interface ProductGalleryProps {
 	className?: string;
-	images: ProductImage[];
+	images?: ProductImage[] | ProductImage; // Изменено: теперь может быть массивом или одним объектом
 	badge?: ProductBadge;
 	discount?: string;
 	isLoading?: boolean;
@@ -55,9 +57,16 @@ export const ProductItemGallery = memo((props: ProductGalleryProps) => {
 		? mapPlugType[badge]
 		: undefined;
 
+	// Преобразуем одиночное изображение в массив, если необходимо
+	const imagesArray = !images
+		? []
+		: Array.isArray(images)
+			? images
+			: [images];
+
 	// Ограничиваем количество изображений до трех
-	const limitedImages = images && images.length > 0
-		? images.slice(0, 3)
+	const limitedImages = imagesArray.length > 0
+		? imagesArray.slice(0, 3)
 		: [];
 
 	const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {

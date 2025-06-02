@@ -4,7 +4,7 @@ import {
 	getRouteAbout, getRouteAuth,
 	getRouteBlog,
 	getRouteCatalog, getRouteContacts, getRouteDelivery, getRouteFavorites, getRouteIndividualOrder,
-	getRouteMain, getRoutePayment, getRouteProfile,
+	getRouteMain, getRoutePayment, getRouteProductDetails, getRouteProfile,
 } from '@/shared/const/router.ts';
 import { RouteProps } from 'react-router-dom';
 import { MainPage } from '@/pages/MainPage';
@@ -12,6 +12,7 @@ import { ProductsPage } from '@/pages/ProductsPage';
 import { FavoritesPage } from '@/pages/FavoritesPage';
 import { AuthPage } from '@/pages/AuthPage';
 import { ProfilePage } from '@/pages/ProfilePage';
+import { ProductDetailsPage } from '@/pages/ProductDetailsPage';
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
 	[AppRoutes.MAIN]: {
@@ -29,6 +30,10 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
 	[AppRoutes.CATALOG]: {
 		path: getRouteCatalog(),
 		element: <ProductsPage/>,
+	},
+	[AppRoutes.PRODUCT_DETAILS]: {
+		path: getRouteProductDetails(':id'),
+		element: <ProductDetailsPage/>,
 	},
 	[AppRoutes.FAVORITES]: {
 		path: getRouteFavorites(),

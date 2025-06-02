@@ -1,0 +1,45 @@
+.title {
+	font-size: 35px;
+	font-weight: 500;
+	color: #2C2F30;
+	text-align: center;
+}
+
+.info {
+	margin-top: 25px;
+	color: #2E2E2E;
+}
+
+.tableInfo {
+	margin-top: 25px;
+}
+
+.tableTitle {
+	font-size: 17px;
+	font-weight: 700;
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 25px;
+}
+
+.table th,
+.table td {
+	padding: 10px;
+	border: 1px solid #e0e0e0;
+}
+
+.table tr th {
+	font-weight: 400;
+}
+
+.table tr th:first-child,
+.table tr td:first-child {
+	background-color: #F9F9F9;
+	font-size: 16px;
+	font-weight: 500;
+}

@@ -18,16 +18,26 @@ export default defineConfig(({ mode }) => {
         modules: {
           generateScopedName: '[name]_[local]__[hash:base64:5]'
         }
-      }
-    ,
+      },
     resolve: {
       alias: {
         '@':
           path.resolve(__dirname, './src'),
-      }
-      ,
-    }
-    ,
+      },
+    },
+		test: {
+			environment: 'node',
+			globals: true,
+			setupFiles: ['./vitest.setup.ts'],
+			browser: {
+				enabled: true,
+				name: 'chromium',
+				provider: 'playwright',
+				headless: true,
+				include: ['**/*.test.{ts,tsx}'],
+			},
+			exclude: ['node_modules', 'dist', '.idea', '.git', '.cache'],
+		},
     define: {
       // Делаем доступными переменные окружения в клиентском коде
       __API_URL__: JSON.stringify(env.VITE_API),

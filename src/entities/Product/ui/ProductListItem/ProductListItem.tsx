@@ -6,6 +6,8 @@ import 'swiper/scss';
 import 'swiper/scss/pagination';
 import { ProductItemGallery } from '../ProductItemGallery/ProductItemGallery';
 import { ProductItemInfo } from '../ProductItemInfo/ProductItemInfo';
+import { AppLink } from '@/shared/ui/AppLink/AppLink.tsx';
+import { getRouteProductDetails } from '@/shared/const/router.ts';
 
 interface ProductListItemProps {
 	className?: string;
@@ -23,7 +25,7 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
 	} = props;
 
 	return (
-		<div className={classNames(cls.ProductListItem, {}, [className])}>
+		<AppLink to={getRouteProductDetails(product.id)} className={classNames(cls.ProductListItem, {}, [className])}>
 			<ProductItemGallery
 				images={product.images}
 				badge={product.badge}
@@ -42,6 +44,6 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
 				price={product.price}
 				// isLoading={isLoading}
 			/>
-		</div>
+		</AppLink>
 	);
 });

@@ -29,7 +29,7 @@ const App = () => {
 	}
 
 	return (
-		<div id={'app'} className="app" style={{ overflowX: 'hidden' }}>
+		<div id={'app'} data-testid={'app'} className="app" style={{ overflowX: 'hidden' }}>
 			<Suspense fallback={'Загрузка...'}>
 				<MainLayout
 					header={<Header />}

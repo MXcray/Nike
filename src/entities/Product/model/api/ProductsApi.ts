@@ -91,6 +91,15 @@ export const ProductsApi = rtkApi.injectEndpoints({
 			},
 			providesTags: ['Products'],
 		}),
+		getProductById: build.query<Product, string>({
+			query: (id) => {
+
+				return {
+					url: `/products/${id}`,
+				};
+			},
+			providesTags: ['Products'],
+		}),
 	}),
 	overrideExisting: false,
 });
@@ -98,5 +107,6 @@ export const ProductsApi = rtkApi.injectEndpoints({
 // Экспорт хуков для использования в компонентах
 export const {
 	useGetProductsQuery,
-	useGetProductsByIdsQuery
+	useGetProductsByIdsQuery,
+	useGetProductByIdQuery,
 } = ProductsApi;

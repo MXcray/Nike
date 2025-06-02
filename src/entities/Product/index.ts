@@ -7,11 +7,13 @@ import {
 	ProductSpecifications,
 	ProductVariant,
 } from './model/types/product';
+import { ProductItemGallery } from './ui/ProductItemGallery/ProductItemGallery';
 
 export {
 	ProductSex,
 	ProductImageVariant,
 	ProductBadge,
+	ProductItemGallery,
 	type ProductPrice,
 	type ProductImageType,
 	type ProductSize,
