@@ -14,6 +14,7 @@ export const FavoritesPage = memo((props: FavoritesPageProps) => {
 
 	return (
 			<div className={classNames(cls.FavoritesPage, {}, [className])}>
+				<h1 className={cls.title}>Избранные товары</h1>
 				<FavoritesList />
 			</div>
 	);

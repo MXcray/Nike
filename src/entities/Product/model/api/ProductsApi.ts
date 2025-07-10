@@ -80,9 +80,9 @@ export const ProductsApi = rtkApi.injectEndpoints({
 				const params = new URLSearchParams();
 
 				// Добавляем каждый id как отдельный параметр с одинаковым именем
-				ids.forEach(id => {
-					params.append('id', id);
-				});
+					ids.forEach(id => {
+						params.append('id', id);
+					});
 
 				return {
 					url: '/products',

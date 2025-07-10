@@ -5,7 +5,6 @@ import { StateSchema, ThunkExtraArg } from './StateSchema.ts';
 import { api } from '@/shared/api/api';
 import { rtkApi } from '@/shared/api/rtkApi.ts';
 import { userReducer } from '@/entities/User';
-import { loginReducer } from '@/features/AuthUser';
 import { registerReducer } from '@/features/RegistrationUser';
 import { favoriteReducer } from '@/entities/Favorites';
 
@@ -15,7 +14,7 @@ export function createReduxStore(initialState?: StateSchema) {
 		ui: UIReducer,
 		productsPage: productsPageReducer,
 		favoriteProducts: favoriteReducer,
-		login: loginReducer,
+		// login: loginReducer,
 		register: registerReducer,
 		[rtkApi.reducerPath]: rtkApi.reducer,
 	}

@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr';
 import path from 'path';
 
+/// <reference types="vitest" />
+/// <reference types="@testing-library/jest-dom" />
+
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
 
@@ -26,16 +29,9 @@ export default defineConfig(({ mode }) => {
       },
     },
 		test: {
-			environment: 'node',
+			environment: 'jsdom',
 			globals: true,
-			setupFiles: ['./vitest.setup.ts'],
-			browser: {
-				enabled: true,
-				name: 'chromium',
-				provider: 'playwright',
-				headless: true,
-				include: ['**/*.test.{ts,tsx}'],
-			},
+			setupFiles: ['./src/app/tests/setup.ts'],
 			exclude: ['node_modules', 'dist', '.idea', '.git', '.cache'],
 		},
     define: {

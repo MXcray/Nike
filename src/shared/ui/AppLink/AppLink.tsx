@@ -3,7 +3,7 @@ import { LinkProps, NavLink } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames.ts';
 import cls from './AppLink.module.scss';
 
-export type AppLinkVariant = 'default' | 'medium' | 'bold' | 'extrabold';
+export type AppLinkVariant = 'default' | 'medium' | 'bold' | 'extrabold' | 'underline';
 
 interface AppLinkProps extends LinkProps {
 	className?: string;

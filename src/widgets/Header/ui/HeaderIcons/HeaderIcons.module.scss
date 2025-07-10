@@ -7,9 +7,28 @@
 	width: 70px;
 	border-left: 1px solid #EAEAEA;
 	transition: .3s;
+	position: relative;
 
 	&:last-child {
 		border-right: 1px solid #EAEAEA;
+	}
+
+	span {
+		content: '';
+		position: absolute;
+		top: -3px;
+		right: -3px;
+		z-index: 1;
+		width: 16px;
+		height: 16px;
+		background-color: var(--light-orange-color);
+		border-radius: 100%;
+		font-size: 9px;
+		font-weight: 700;
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 }
 

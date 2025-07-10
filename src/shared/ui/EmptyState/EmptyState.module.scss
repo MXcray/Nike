@@ -1,0 +1,31 @@
+.EmptyState {
+	//display: flex;
+	//flex-direction: column;
+	//height: 100%;
+}
+
+.content {
+	//margin: auto 0;
+	padding: 120px 0;
+}
+
+.title, .description {
+	text-align: center;
+}
+
+.title {
+	margin-top: 20px;
+	font-size: 35px;
+	font-weight: 500;
+}
+
+.description {
+	margin-top: 20px;
+	font-size: 15px;
+	line-height: 24px;
+}
+
+.action {
+	margin-top: 30px;
+	text-align: center;
+}

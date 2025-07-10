@@ -1,9 +1,8 @@
-import { registerReducer } from './model/slices/registerSlice';
-import { RegisterSchema } from './model/types/registerSchema';
-import { RegistrationForm } from './ui/RegistrationForm/RegistrationForm';
+import { registerReducer, RegisterSchema } from './model/slices/registerSlice.ts';
+import { RegistrationForm } from '@/features/RegistrationUser/ui/RegistrationForm/RegistrationForm.tsx';
 
 export {
-	RegistrationForm,
-	registerReducer,
-	type RegisterSchema,
-}
+    registerReducer,
+    RegistrationForm,
+    type RegisterSchema,
+};

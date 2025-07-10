@@ -15560,6 +15560,13 @@
       "name": "Олег Олегов",
       "phoneNumber": "88005553535",
       "id": "k_Bo-uq"
+    },
+    {
+      "email": "user10@gmail.com",
+      "password": "$2a$10$Cad.E/kDIe717Tj132v6b./sxJ1MDS1gz.aYpNrO8IJSfRq1FfpQC",
+      "name": "Константин Заруцкий",
+      "phoneNumber": "+7 (222) 222-22-22",
+      "id": "Z2qHoCN"
     }
   ],
   "profiles": [
@@ -15586,6 +15593,13 @@
         "22"
       ],
       "userId": "oPYU6FD"
+    },
+    {
+      "id": "bd7054b0-70d1-4b8e-9325-9406354e502f",
+      "productId": [
+        "1"
+      ],
+      "userId": "Z2qHoCN"
     }
   ]
 }

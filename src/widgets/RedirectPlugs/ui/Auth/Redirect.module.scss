@@ -1,0 +1,26 @@
+.Redirect {
+	display: flex;
+	gap: 12px 30px;
+	padding-left: 50px;
+	border-left: 1px solid #EAEAEA;
+}
+
+.title {
+	font-size: 28px;
+	font-weight: 500;
+}
+
+.text {
+	margin-top: 32px;
+	color: #515151;
+	max-width: 565px;
+	line-height: 28px;
+}
+
+.iconBtnWrapper {
+	padding: 25px;
+}
+
+.button {
+	margin-top: 10px;
+}

@@ -1,6 +1,7 @@
 export enum AppRoutes {
 	MAIN = 'main',
-	AUTH = 'auth',
+	LOGIN = 'login',
+	REGISTER = 'register',
 	PROFILE = 'profile',
 	CATALOG = 'catalog',
 	PRODUCT_DETAILS = 'article_details',
@@ -17,7 +18,8 @@ export enum AppRoutes {
 }
 
 export const getRouteMain = () => '/';
-export const getRouteAuth = () => '/auth';
+export const getRouteLogin = () => '/login';
+export const getRouteRegister = () => '/register';
 export const getRouteProfile = () => '/profile';
 export const getRouteCatalog = () => '/catalog';
 export const getRouteProductDetails = (id: string) => `/product/${id}`;

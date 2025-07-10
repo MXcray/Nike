@@ -1,0 +1,33 @@
+.RegistrationForm {
+	max-width: 464px;
+	width: 100%;
+	margin-right: 50px;
+}
+
+.input {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 15px;
+}
+
+.policy {
+	margin-bottom: 15px;
+}
+
+.btnIconWrapper {
+	height: 100%;
+	padding: 25px;
+}
+
+.button {
+	width: 100%;
+	&:disabled {
+		cursor: auto;
+		opacity: 0.7;
+	}
+}
+
+.errorField {
+	color: #F81D2A;
+	padding-bottom: 14px;
+}

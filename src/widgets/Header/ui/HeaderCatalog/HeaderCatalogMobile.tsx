@@ -16,6 +16,8 @@ import { UIActions } from '@/features/UI';
 import { getHeaderLinks } from '../../model/selectors/getHeaderLinks.ts';
 import Search from '@/shared/assets/icons/search.svg?react';
 import { motion } from 'motion/react';
+import { useSelector } from 'react-redux';
+import { getTotalFavorites } from '@/entities/Favorites';
 
 interface HeaderCatalogMobile {
 	onClose: () => void;
@@ -27,8 +29,9 @@ const HeaderCatalogMobile = memo(({ onClose }: HeaderCatalogMobile) => {
 	const links = getHeaderLinks();
 	const catalogRef = useRef<HTMLDivElement>(null);
 
-	let favoritesCount;
-	const cartCount = 7;
+	const favoritesCount = useSelector(getTotalFavorites);
+	// TODO: добавить селектор для корзины
+	const cartCount = undefined;
 
 	const handleClickOutside = useCallback((event: MouseEvent) => {
 		if (catalogRef.current && !catalogRef.current.contains(event.target as Node)) {

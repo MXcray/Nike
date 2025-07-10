@@ -12,13 +12,14 @@ export const userSlice = createSlice({
 	reducers: {
 		setAuthData: (state, { payload }: PayloadAction<UserDataDto>) => {
 			state.authData = payload.user;
-			state._inited = true;
+			// state._inited = true;
 
-			localStorage.setItem('token', payload.accessToken);
+			// редьюсер чистая функция, переносим LS в api или компонент
+			// localStorage.setItem('token', payload.accessToken);
 		},
 		logout: (state) => {
 			state.authData = undefined;
-			state._inited = true;
+			// state._inited = true;
 
 			localStorage.removeItem('token');
 		},

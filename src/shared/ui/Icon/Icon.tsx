@@ -33,6 +33,16 @@ export const Icon = memo((props: IconProps) => {
 		...otherProps
 	} = props;
 
+	// Обработчик клика с остановкой всплытия события
+	const handleClick = (event: React.MouseEvent) => {
+		event.preventDefault(); // Также предотвращаем действие по умолчанию
+
+		// Вызываем onClick только если он есть
+		if (clickable && props.onClick) {
+			props.onClick();
+		}
+	};
+
 	const icon = (
 		<Svg
 			className={classNames(cls.Icon, {}, [className])}
@@ -49,7 +59,7 @@ export const Icon = memo((props: IconProps) => {
 			<button
 				className={wrapperClassName}
 				type={'button'}
-				onClick={props.onClick}
+				onClick={handleClick}
 				disabled={props.disabled}
 			>
 				{icon}

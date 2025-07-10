@@ -1,27 +1,32 @@
 import React from 'react';
 import {
 	AppRoutes,
-	getRouteAbout, getRouteAuth,
+	getRouteAbout,
 	getRouteBlog,
-	getRouteCatalog, getRouteContacts, getRouteDelivery, getRouteFavorites, getRouteIndividualOrder,
-	getRouteMain, getRoutePayment, getRouteProductDetails, getRouteProfile,
+	getRouteCatalog, getRouteContacts, getRouteDelivery, getRouteFavorites, getRouteIndividualOrder, getRouteLogin,
+	getRouteMain, getRoutePayment, getRouteProductDetails, getRouteProfile, getRouteRegister,
 } from '@/shared/const/router.ts';
 import { RouteProps } from 'react-router-dom';
 import { MainPage } from '@/pages/MainPage';
 import { ProductsPage } from '@/pages/ProductsPage';
 import { FavoritesPage } from '@/pages/FavoritesPage';
-import { AuthPage } from '@/pages/AuthPage';
+import { RegisterPage } from '@/pages/RegisterPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { ProductDetailsPage } from '@/pages/ProductDetailsPage';
+import { LoginPage } from '@/pages/LoginPage';
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
 	[AppRoutes.MAIN]: {
 		path: getRouteMain(),
 		element: <MainPage />,
 	},
-	[AppRoutes.AUTH]: {
-		path: getRouteAuth(),
-		element: <AuthPage />,
+	[AppRoutes.LOGIN]: {
+		path: getRouteLogin(),
+		element: <LoginPage />,
+	},
+	[AppRoutes.REGISTER]: {
+		path: getRouteRegister(),
+		element: <RegisterPage />,
 	},
 	[AppRoutes.PROFILE]: {
 		path: getRouteProfile(),

@@ -1,5 +1,5 @@
 .Button {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	transition: .3s;
@@ -11,6 +11,10 @@
 	justify-content: center;
 
 	transition: .3s;
+}
+
+.iconFull {
+	padding: 25px;
 }
 
 .orange, .black {
@@ -83,4 +87,9 @@
 		min-width: 181px;
 		padding: 23px 25px;
 	}
+}
+
+.max {
+	width: 100%;
+	max-width: 100%;
 }

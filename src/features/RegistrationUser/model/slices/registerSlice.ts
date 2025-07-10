@@ -1,10 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { registerByEmail } from '../services/registerByEmail';
-
-interface RegisterSchema {
-    isLoading: boolean;
-    error?: string;
-}
+import { loginByEmail } from '../services/loginByEmail';
+import { RegisterSchema } from '../types/registerSchema';
 
 const initialState: RegisterSchema = {
     isLoading: false,
@@ -16,19 +12,20 @@ export const registerSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(registerByEmail.pending, (state) => {
+            .addCase(loginByEmail.pending, (state) => {
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(registerByEmail.fulfilled, (state) => {
+            .addCase(loginByEmail.fulfilled, (state) => {
                 state.isLoading = false;
             })
-            .addCase(registerByEmail.rejected, (state, action) => {
+            .addCase(loginByEmail.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
             });
     },
-}); 
+});
 
 export const { actions: registerActions } = registerSlice;
 export const { reducer: registerReducer } = registerSlice;
+

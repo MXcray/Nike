@@ -6,11 +6,12 @@ import SearchIcon from '@/shared/assets/icons/search.svg?react';
 import LikeIcon from '@/shared/assets/icons/like.svg?react';
 import BagIcon from '@/shared/assets/icons/bag.svg?react';
 import UserIcon from '@/shared/assets/icons/user.svg?react';
-import { AppLink } from '@/shared/ui/AppLink/AppLink.tsx';
 import { getRouteFavorites, getRouteMain } from '@/shared/const/router.ts';
 import { useAppMedia } from '@/shared/hooks/useAppMedia/useAppMedia.tsx';
 import { useMediaQuery } from 'react-responsive';
 import { HeaderIcon } from '../HeaderIcon/HeaderIcon.tsx';
+import { useSelector } from 'react-redux';
+import { getTotalFavorites } from '@/entities/Favorites';
 
 interface HeaderIconsProps {
 	searchToggle: () => void;
@@ -23,22 +24,25 @@ export const HeaderIcons = memo(({ searchToggle, className }: HeaderIconsProps) 
 		query: '(max-width: 600px)'
 	})
 
+	const favoriteCount = useSelector(getTotalFavorites);
+
 	return (
 		<div className={classNames(cls.HeaderIcons, {}, [className])}>
-			{!isMedia600 &&
+			{!isMedia600 && (
 				<>
-					{!isMedia768 &&
+					{!isMedia768 && (
 						<HeaderIcon className={cls.iconItem} to={getRouteMain()}>
 							<Icon Svg={UserIcon} />
 						</HeaderIcon>
-					}
+					)}
 					<HeaderIcon className={cls.iconItem} onClick={searchToggle}>
 						<Icon Svg={SearchIcon} />
 					</HeaderIcon>
 				</>
-			}
+			)}
 			<HeaderIcon className={cls.iconItem} to={getRouteFavorites()}>
 				<Icon Svg={LikeIcon} />
+				{favoriteCount && <span>{favoriteCount}</span>}
 			</HeaderIcon>
 			<HeaderIcon className={cls.iconItem} to={getRouteMain()}>
 				<Icon Svg={BagIcon} />

@@ -22,7 +22,7 @@ export const MainLayout = memo((props: MainLayoutProps) => {
 	const isHeaderMenuOpened = useSelector(getIsHeaderMenuOpened);
 
 	return (
-		<div className={classNames(cls.MainLayout, {[cls.menuOpen]: isHeaderMenuOpened}, [className])}>
+		<div className={classNames(cls.MainLayout, { [cls.menuOpen]: isHeaderMenuOpened }, [className])}>
 			<div className={cls.header}>{header}</div>
 			<div className={cls.content}>{content}</div>
 			<div className={cls.footer}>{footer}</div>
