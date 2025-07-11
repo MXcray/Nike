@@ -30,7 +30,7 @@ export const AppLink = memo((props: AppLinkProps) => {
 			}
 			{...otherProps}
 		>
-			{children}
+			test - {children}
 		</NavLink>
 	);
 });
