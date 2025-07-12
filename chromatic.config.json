@@ -1,18 +1,4 @@
 {
-  "autoAcceptChanges": false,
-  "buildScriptName": "build-storybook",
-  "debug": false,
-  "exitOnceUploaded": false,
-  "exitZeroOnChanges": false,
-  "externals": [],
-  "fileHashing": true,
-  "ignoreLastBuildOnBranch": "main",
-  "junitReport": false,
-  "onlyChanged": true,
   "projectId": "Project:68718448da9a8bad701636f6",
-  "projectToken": "chpt_47a3e7dc50d09dd",
-  "skip": false,
-  "storybookBuildDir": "storybook-static",
-  "traceChanged": "expanded",
-  "zip": true
+  "projectToken": "chpt_47a3e7dc50d09dd"
 }
