@@ -5,10 +5,28 @@ import { RouterDecorator } from '../src/shared/config/storybook/RouterDecorator/
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import { StyleDecorator } from '../src/shared/config/storybook/StyleDecorator/StyleDecorator';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+import { DefaultStoreDecorator } from '../src/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { initialize, mswDecorator } from 'msw-storybook-addon';
+import { handlers } from '../src/shared/api/msw/mswProducts/mswProducts';
+
+// Инициализация MSW
+initialize({
+	onUnhandledRequest: 'bypass', // Пропускать необработанные запросы
+});
 
 const preview: Preview = {
-	decorators: [RouterDecorator, StyleDecorator],
+	decorators: [
+		RouterDecorator,
+		StyleDecorator,
+		DefaultStoreDecorator,
+		mswDecorator,
+	],
 	parameters: {
+		msw: {
+			handlers: handlers,
+		},
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,

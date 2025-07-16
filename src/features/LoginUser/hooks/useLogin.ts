@@ -9,6 +9,11 @@ export const useLogin = () => {
 
 	const login = useCallback(async (credentials: LoginUserRequest) => {
 		const response = await loginUser(credentials).unwrap();
+
+		if (response.accessToken) {
+			localStorage.setItem('token', response.accessToken)
+		}
+
 		dispatch(userActions.setAuthData(response));
 		return response;
 	}, [loginUser, dispatch]);

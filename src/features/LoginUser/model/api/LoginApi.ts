@@ -48,7 +48,6 @@ export const loginApi = rtkApi.injectEndpoints({
 			// 		throw error;
 			// 	}
 			// },
-
 			transformErrorResponse: (response, meta, arg) => {
 				if (response?.data === 'Incorrect password' || response?.data === 'Incorrect email') {
 					return {

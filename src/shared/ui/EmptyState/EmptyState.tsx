@@ -27,7 +27,7 @@ export const EmptyState = memo((props: EmptyStateProps) => {
 					<Icon
 						Svg={icon}
 						height={86}
-						width={'auto'}
+						width={'100%'}
 					/>
 				)}
 					<h3 className={cls.title}>{title}</h3>

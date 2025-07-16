@@ -8,13 +8,16 @@ const config: StorybookConfig = {
   "addons": [
     "@chromatic-com/storybook",
     "@storybook/addon-docs",
-    "@storybook/addon-onboarding",
+    // "@storybook/addon-onboarding",
     "@storybook/addon-a11y",
-    "@storybook/addon-vitest"
+    "@storybook/addon-vitest",
+		'msw-storybook-addon',
   ],
   "framework": {
     "name": "@storybook/react-vite",
     "options": {}
-  }
+  },
+	// Добавляем статическую директорию для MSW
+	staticDirs: ['./static'],
 };
 export default config;
